@@ -1,0 +1,305 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent zoom on mobile and desktop */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+/* Arabic font - applied automatically when dir=rtl */
+html[dir="rtl"],
+html[dir="rtl"] body,
+html[dir="rtl"] * {
+  font-family: 'IBM Plex Sans Arabic', sans-serif !important;
+}
+
+/* RTL Support - Direction */
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="ltr"] {
+  direction: ltr;
+}
+
+/* Custom global styles */
+body {
+  font-family: 'Inter', 'Roboto', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Section Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-animate-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+.section-animate-visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+  .section-animate-hidden {
+    opacity: 0;
+    transform: none;
+  }
+  .section-animate-visible {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Heading Fade In Animation */
+.heading-hidden {
+  transform: translateY(30px);
+}
+
+@keyframes headingFadeIn {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.heading-animate {
+  animation: headingFadeIn 0.8s ease-out forwards;
+}
+
+/* Button Letter Animation - Wave Effect on Hover */
+@keyframes letterWave {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-8px) scale(1.15);
+  }
+  60% {
+    transform: translateY(3px) scale(0.95);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.btn-wave {
+  position: relative;
+  overflow: visible;
+}
+
+.btn-wave .letter {
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-wave:hover .letter {
+  animation: letterWave 0.5s ease-in-out;
+}
+
+.btn-wave:hover .letter:nth-child(1) { animation-delay: 0s; }
+.btn-wave:hover .letter:nth-child(2) { animation-delay: 0.03s; }
+.btn-wave:hover .letter:nth-child(3) { animation-delay: 0.06s; }
+.btn-wave:hover .letter:nth-child(4) { animation-delay: 0.09s; }
+.btn-wave:hover .letter:nth-child(5) { animation-delay: 0.12s; }
+.btn-wave:hover .letter:nth-child(6) { animation-delay: 0.15s; }
+.btn-wave:hover .letter:nth-child(7) { animation-delay: 0.18s; }
+.btn-wave:hover .letter:nth-child(8) { animation-delay: 0.21s; }
+.btn-wave:hover .letter:nth-child(9) { animation-delay: 0.24s; }
+.btn-wave:hover .letter:nth-child(10) { animation-delay: 0.27s; }
+.btn-wave:hover .letter:nth-child(11) { animation-delay: 0.3s; }
+.btn-wave:hover .letter:nth-child(12) { animation-delay: 0.33s; }
+.btn-wave:hover .letter:nth-child(13) { animation-delay: 0.36s; }
+.btn-wave:hover .letter:nth-child(14) { animation-delay: 0.39s; }
+.btn-wave:hover .letter:nth-child(15) { animation-delay: 0.42s; }
+.btn-wave:hover .letter:nth-child(16) { animation-delay: 0.45s; }
+.btn-wave:hover .letter:nth-child(17) { animation-delay: 0.48s; }
+.btn-wave:hover .letter:nth-child(18) { animation-delay: 0.51s; }
+.btn-wave:hover .letter:nth-child(19) { animation-delay: 0.54s; }
+.btn-wave:hover .letter:nth-child(20) { animation-delay: 0.57s; }
+
+/* Animated Letters - Letter by Letter Animation */
+@keyframes letterFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animated-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animated-letter.letter-visible {
+  animation: letterFadeIn 0.6s ease-out forwards;
+}
+
+/* Logo Scroll Animation - Smooth Continuous Scroll */
+@keyframes logoScrollSmooth {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.logo-scroll {
+  display: flex;
+  animation: logoScrollSmooth 15s linear infinite;
+  width: max-content;
+}
+
+.logo-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Border Light Animation */
+@keyframes borderLight {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 200%;
+  }
+}
+
+.border-light-animate {
+  background-size: 100% 200%;
+  animation: borderLight 2s linear infinite;
+}
+
+/* Course Projects - Curved Track */
+.curved-track {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* All cards same level - no translateY */
+.curved-card {
+  transform: translateY(0px);
+}
+
+/* Performance optimization for smooth animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+  }
+}
+
+/* Performance optimization for smooth animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+  }
+}
+
+/* Horizontal scroll row - custom scrollbar */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 9999px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Video Protection Styles */
+video {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+video::-webkit-media-controls-download-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+video::-webkit-media-controls-panel {
+  width: calc(100% + 30px);
+}
+
+/* Prevent text selection on video container */
+.video-container {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Disable screenshot on specific browsers */
+@media screen {
+  video {
+    -webkit-touch-callout: none;
+  }
+}
+
+/* Additional protection layer */
+video::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}

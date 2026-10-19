@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "our": "Our",
+    "title": "Certifications",
+    "subtitle": "Reflect Excellence and Trust"
+  },
+  "card": {
+    "label": "CERTIFICATION",
+    "student": "Trainee",
+    "excellence": "Excellence in Graphic Design",
+    "defaultDesc": "A vision that perfectly aligns with my professional ambitions. New and distinctive ideas that I know I will achieve. It's a wonderful feeling to work in an environment that constantly drives you toward success and excellence."
+  },
+  "loading": "Loading...",
+  "successStory": {
+    "line1": "Don't just watch others",
+    "line2": "succeed... Be the next",
+    "line3": "success story."
+  },
+  "cta": {
+    "ready": "Are you ready to become the creative partner the market is waiting for?",
+    "join": "Join Abdullah ELNasr's transformation journey"
+  }
+}

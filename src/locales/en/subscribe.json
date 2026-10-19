@@ -1,0 +1,26 @@
+{
+  "title": "Subscribe",
+  "lifetime": "Lifetime subscription",
+  "subtitle": "Enjoy a lifetime subscription including course updates",
+  "emailPlaceholder": "Enter Your Email",
+  "getAccess": "Get Early Access",
+  "loading": "Loading...",
+  "planName": "Alterity Standard",
+  "billedLifelong": "Billed lifelong",
+  "annualBilling": "with annual billing",
+  "beforeDiscount": "Before the discount",
+  "grandTotal": "Grand total",
+  "subscribeNow": "Subscribe now →",
+  "tryFree": "Try Free Lesson ⇒",
+  "reasonsTitle": "Reasons for subscribing",
+  "reasons": {
+    "r1": "Lifetime active subscription",
+    "r2": "Exporting files in the course",
+    "r3": "Lifelong follow-up",
+    "r4": "Support paid files",
+    "r5": "Lectures for free"
+  },
+  "rights": "@Elnasr courses.2026 All rights reserved",
+  "refundPolicy": "Refund Policy",
+  "internationalStandard": "Subscribe to International Standard"
+}

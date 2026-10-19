@@ -1,0 +1,632 @@
+import { useEffect, useRef, useState } from 'react';
+import BASE_URL from '../api/config';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '../hooks/useLanguage';
+
+const parseStatNumber = (str) => {
+  const clean = str.replace(/,/g, '');
+  const num = parseInt(clean.replace(/\D/g, ''), 10) || 0;
+  const suffix = str.includes('+') ? (str.startsWith('+') ? '+' : '+') : '';
+  return { num, suffix };
+};
+
+const CountUp = ({ value, style }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const { num, suffix } = parseStatNumber(value);
+  const animated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    setCount(0);
+    animated.current = false;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !animated.current) {
+        animated.current = true;
+        const duration = 10000;
+        const startTime = performance.now();
+        const frame = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          setCount(Math.floor(progress * num));
+          if (progress < 1) requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      } else if (!entry.isIntersecting) {
+        setCount(0);
+        animated.current = false;
+      }
+    }, { threshold: 0.3 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [num]);
+
+  const display = num >= 1000 ? count.toLocaleString() : count;
+
+  return <span ref={ref} style={style}>{display}{suffix}</span>;
+};
+
+const consultationItemsEn = [
+  { gif: 'Screen Recording 2026-04-06 224507.gif', lines: ['Analysis of', 'your current', 'situation'] },
+  { gif: 'Screen Recording 2026-04-06 224608.gif', lines: ['A comprehensive answer to all your', 'questions about', 'the job market'] },
+  { gif: 'Screen Recording 2026-04-06 224656.gif', lines: ['Develop a clear', 'business plan', 'to generate', 'profits.'] },
+];
+
+const consultationItemsAr = [
+  { gif: 'Screen Recording 2026-04-06 224656.gif', lines: ['قم بوضع خطة عمل', 'واضحة لتحقيق', 'الأرباح.'] },
+  { gif: 'Screen Recording 2026-04-06 224608.gif', lines: ['إجابة شامله لجميع أسئلتك حول سوق', 'العمل', ''] },
+  { gif: 'Screen Recording 2026-04-06 224507.gif', lines: ['تحليل', 'وضعك الحالي', 'من مستواك'] },
+];
+
+const ConsultationCarousel = ({ items }) => {
+  const scrollRef = useRef(null);
+  const autoScrollRef = useRef(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const start = () => {
+      autoScrollRef.current = setInterval(() => {
+        if (!el) return;
+        const max = el.scrollWidth - el.clientWidth;
+        if (el.scrollLeft >= max - 10) {
+          el.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          el.scrollBy({ left: el.clientWidth * 0.85, behavior: 'smooth' });
+        }
+      }, 3000);
+    };
+    start();
+    const pause = () => clearInterval(autoScrollRef.current);
+    const resume = () => start();
+    el.addEventListener('touchstart', pause);
+    el.addEventListener('touchend', resume);
+    return () => {
+      clearInterval(autoScrollRef.current);
+      el.removeEventListener('touchstart', pause);
+      el.removeEventListener('touchend', resume);
+    };
+  }, []);
+
+  return (
+    <div ref={scrollRef} className="md:hidden flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+      {items.map((item, i) => (
+        <div key={i} className="flex-shrink-0 w-[75vw] max-w-[260px] flex flex-col items-center gap-3 snap-center">
+          <div style={{
+            background: 'linear-gradient(135deg, #FEBE01 0%, #4E1912 100%)',
+            borderRadius: '20px', padding: '3px',
+            width: '160px', height: '160px',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <div style={{
+              background: 'white', borderRadius: '18px',
+              width: '100%', height: '100%',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <img src={item.gif} alt={item.lines[0]} style={{ width: '130px', height: '130px', objectFit: 'contain' }} />
+            </div>
+          </div>
+          <p style={{ fontFamily: 'Lexend', fontWeight: 500, fontSize: '16px', color: '#000', textAlign: 'center', lineHeight: '1.4' }}>
+            {item.lines.map((line, j) => (<span key={j}>{line}{j < item.lines.length - 1 && <br />}</span>))}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const ContactCardsCarousel = ({ items }) => {
+  const scrollRef = useRef(null);
+  const autoScrollRef = useRef(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const start = () => {
+      autoScrollRef.current = setInterval(() => {
+        if (!el) return;
+        const max = el.scrollWidth - el.clientWidth;
+        if (el.scrollLeft >= max - 10) {
+          el.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          el.scrollBy({ left: el.clientWidth * 0.85, behavior: 'smooth' });
+        }
+      }, 3000);
+    };
+    start();
+    const pause = () => clearInterval(autoScrollRef.current);
+    const resume = () => start();
+    el.addEventListener('touchstart', pause);
+    el.addEventListener('touchend', resume);
+    return () => {
+      clearInterval(autoScrollRef.current);
+      el.removeEventListener('touchstart', pause);
+      el.removeEventListener('touchend', resume);
+    };
+  }, []);
+
+  return (
+    <div ref={scrollRef} className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 mb-6">
+      {items.map((item, i) => (
+        <div key={i} className="flex-shrink-0 w-[80vw] max-w-[280px] snap-center" style={{ border: '2px solid #D8A10F', borderRadius: '16px', overflow: 'hidden', background: '#fff' }}>
+          <div style={{ background: '#111', padding: '20px 16px', borderRadius: '16px 16px 24px 24px', boxShadow: '0 8px 16px 2px rgba(0,0,0,0.15)', position: 'relative', zIndex: 2, marginBottom: '-20px' }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span style={{ color: '#fff', fontSize: '18px' }}>{item.icon}</span>
+              <span style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: '16px', backgroundImage: 'linear-gradient(to right, #D8A10F, #EEC62D, #D3990C)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{item.title}</span>
+            </div>
+            <p style={{ fontFamily: 'Lexend', fontSize: '12px', color: '#fff', wordBreak: 'break-all' }}>{item.value}</p>
+          </div>
+          <div style={{ background: '#fff', padding: '28px 16px 14px 16px' }}>
+            <p style={{ fontFamily: 'Lexend', fontSize: '14px', fontWeight: 700, color: '#111', whiteSpace: 'pre-line' }}>{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const contactCardsEn = [
+  { icon: '✉', title: 'Email', value: 'abdullahelnasrabdullahelnasr@gmail.com', desc: 'Submit your request' },
+  { icon: '✈', title: 'Telegram', value: '@alnaser224', desc: 'Follow student results and\nbehind-the-scenes work' },
+  { icon: 'B', title: 'WhatsApp Business', value: 'https://wa.me/message/YY7B6636FEATM1', desc: 'Speak directly with the\ntechnical support team' },
+];
+
+const contactCardsAr = [
+  { icon: '✉', title: 'البريد الإلكتروني', value: 'abdullahelnasrabdullahelnasr@gmail.com', desc: 'أرسل طلبك' },
+  { icon: '✈', title: 'تيليجرام', value: '@alnaser224', desc: 'تابع نتائج الطلاب\nوكواليس العمل' },
+  { icon: 'B', title: 'واتساب للأعمال', value: 'https://wa.me/message/YY7B6636FEATM1', desc: 'تحدث مباشرة مع\nفريق الدعم الفني' },
+];
+
+function Contact() {
+  const { t } = useTranslation('contact');
+  const { isAr } = useLanguage();
+  const [faqs, setFaqs] = useState([]);
+  const [openQuestion, setOpenQuestion] = useState(null);
+  const [contactInfo, setContactInfo] = useState(null);
+  const [contactCards, setContactCards] = useState([]);
+  const consultationItems = isAr ? consultationItemsAr : consultationItemsEn;
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/contact-info`)
+      .then(r => r.json())
+      .then(json => {
+        if (json.data) {
+          setContactInfo(json.data);
+          // Build contact cards from API data
+          const cards = [
+            { 
+              icon: '✉', 
+              title: isAr ? 'البريد الإلكتروني' : 'Email', 
+              value: json.data.email, 
+              desc: t('social.emailDesc') 
+            },
+            { 
+              icon: '✈', 
+              title: isAr ? 'تيليجرام' : 'Telegram', 
+              value: json.data.telegram_username, 
+              desc: t('social.telegramDesc') 
+            },
+            { 
+              icon: 'B', 
+              title: isAr ? 'واتساب للأعمال' : 'WhatsApp Business', 
+              value: json.data.whatsapp_url, 
+              desc: t('social.whatsappDesc') 
+            },
+          ];
+          setContactCards(cards);
+        }
+      })
+      .catch(() => {});
+  }, [isAr, t]);
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/faqs?placement=contact`)
+      .then(r => r.json())
+      .then(json => {
+        const items = (json.data || []).sort((a, b) => a.display_order - b.display_order);
+        const mapped = items.map(item => ({
+          id: item.id,
+          question: isAr ? (item.question_ar || item.question) : (item.question_en || item.question),
+          answer: isAr ? (item.answer_ar || item.answer) : (item.answer_en || item.answer),
+        }));
+        setFaqs(mapped);
+        if (mapped.length > 0) setOpenQuestion(mapped[0].id);
+      })
+      .catch(() => {});
+  }, [isAr]);
+
+  const toggleQuestion = (id) => {
+    setOpenQuestion(openQuestion === id ? null : id);
+  };
+
+  return (
+    <div style={{ backgroundColor: '#000000C9' }}>
+      {/* Hero Section */}
+      <section className="w-full bg-white flex items-start justify-center pt-16 md:pt-20 relative" dir={isAr ? 'rtl' : 'ltr'}>
+        <div className="relative w-full max-w-full">
+          <img
+            className="w-full h-auto object-cover"
+            src="/cover-websitebar2 2.png"
+            alt="Courses Cover"
+            style={{ transform: isAr ? 'scaleX(-1)' : 'none' }}
+          />
+          {/* Text overlay on hero image */}
+          <div className="absolute inset-0 flex items-center px-10 md:px-20">
+            <div className="flex flex-col gap-2">
+              <div style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: 'clamp(48px, 9vw, 128px)', lineHeight: 1 }}>
+                {isAr ? (
+                  <img src="/جاهزين في الوطن العربي 1.png" alt="جاهزين في الوطن العربي" style={{ height: 'clamp(100px, 14vw, 220px)', width: 'auto' }} />
+                ) : (
+                  <span style={{ 
+                    backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    color: 'transparent',
+                    WebkitTextFillColor: 'transparent',
+                  }}>{t('hero.readyTo')}</span>
+                )}
+              </div>
+              <p style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: 'clamp(20px, 4vw, 70px)', color: '#000000', lineHeight: 1 }}>{t('hero.connect')}</p>
+              <p style={{ fontFamily: 'Lexend', fontWeight: 300, fontSize: 'clamp(14px, 2vw, 30px)', backgroundImage: 'linear-gradient(to right, #7300FF, #00D0FF, #FF0000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{t('hero.letsTalk')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Secure Your Spot Section */}
+      <section className="w-full bg-white py-12 px-6 md:px-12 lg:px-20">
+        <div className="max-w-[1200px] mx-auto">
+          <style>{`
+            @keyframes secureSpotBorder {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            .secure-spot-border {
+              background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0, #0080ff, #8000ff, #00ff80);
+              background-size: 300% 300%;
+              animation: secureSpotBorder 3s ease infinite;
+              padding: 1px;
+              border-radius: 9999px;
+            }
+          `}</style>
+          <div className="secure-spot-border">
+            <div className="rounded-full bg-white" style={{ padding: '6px' }}>
+              <div className="rounded-full" style={{
+                backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}>
+                <div className="rounded-full px-4 sm:px-8 py-2 flex items-center justify-center">
+                  <p className="text-center" style={{
+                    fontFamily: 'Lexend',
+                    fontWeight: 600,
+                    fontSize: 'clamp(11px, 3vw, 45px)',
+                    color: 'white',
+                  }}>{t('secureSpot')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="w-full py-16 md:py-20 bg-white">
+        <div className="w-full max-w-[1031px] mx-auto px-6 sm:px-8 lg:px-12" style={{ minHeight: '1286px' }}>
+          <h2 className="text-center font-bold mb-8" style={{
+            fontFamily: 'Lexend',
+            fontSize: 'clamp(24px, 4vw, 46px)',
+            backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+          }}>{t('form.title')}</h2>
+          <style>{`
+            .feedback-border {
+              background: linear-gradient(90deg, #FF0AD2 0%, #FF0AD2 50%, #0AFFFF 75%, #0AFF26 70%, #0AD20A 70%, #FF0004 100%);
+              padding: 2px;
+              border-radius: 16px;
+            }
+          `}</style>
+          <div className="feedback-border">
+            <div className="bg-white rounded-[14px] p-8">
+              <form className="space-y-5">
+                <div>
+                  <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.name')} <span className="text-yellow-500">*</span></label>
+                  <input type="text" className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none" style={{ fontFamily: 'Lexend' }} />
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.phone')} <span className="text-yellow-500">*</span></label>
+                  <input type="tel" className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none" style={{ fontFamily: 'Lexend' }} />
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.email')} <span className="text-yellow-500">*</span></label>
+                  <input type="email" placeholder={t('form.emailPlaceholder')} className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none" style={{ fontFamily: 'Lexend' }} />
+                </div>
+                <div>
+                  <label className="block font-semibold mb-2" style={{ fontFamily: 'Lexend' }}>{t('form.faqLabel')} <span className="text-yellow-500">*</span></label>
+                  <div className="bg-gray-100 rounded p-4 space-y-3">
+                    <div>
+                      <p className="font-semibold mb-2" style={{ fontFamily: 'Lexend', fontSize: 'clamp(14px, 1.5vw, 20px)', backgroundImage: 'linear-gradient(to right, #FFC800, #534100)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{t('form.levelQ')}</p>
+                      <div className="flex flex-col gap-1">
+                        {[t('form.beginner'), t('form.intermediate'), t('form.professional')].map(level => (
+                          <label key={level} className="flex items-center gap-2 cursor-pointer text-sm" style={{ fontFamily: 'Lexend' }}>
+                            <input type="radio" name="level" value={level} className="accent-yellow-500" />
+                            {level}
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-2" style={{ fontFamily: 'Lexend', fontSize: 'clamp(14px, 1.5vw, 20px)', backgroundImage: 'linear-gradient(to right, #FFC800, #534100)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{t('form.goalQ')}</p>
+                      <div className="flex flex-col gap-1">
+                        {[t('form.goal1'), t('form.goal2'), t('form.goal3')].map(goal => (
+                          <label key={goal} className="flex items-center gap-2 cursor-pointer text-sm" style={{ fontFamily: 'Lexend' }}>
+                            <input type="radio" name="goal" value={goal} className="accent-yellow-500" />
+                            {goal}
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.message')} <span className="text-yellow-500">*</span></label>
+                  <textarea className="w-full px-4 py-3 rounded bg-gray-100 focus:outline-none resize-none h-[180px]" style={{ fontFamily: 'Lexend' }}></textarea>
+                </div>
+                <button type="submit" className="border border-black px-8 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition-colors" style={{ fontFamily: 'Lexend' }}>
+                  {t('form.sendBtn')}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Consultation Section */}
+      <section className="w-full py-16 bg-white">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <h2 className="font-bold mb-12" style={{
+            fontFamily: 'Lexend',
+            fontSize: 'clamp(20px, 5vw, 64px)',
+            lineHeight: '1.2',
+            backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'bottom',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+          }}>
+            {t('consultation.title').split('\n').map((line, i, arr) => (
+              <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+            ))}
+          </h2>
+          {/* Mobile: auto-scroll carousel */}
+          <ConsultationCarousel items={consultationItems} />
+
+          {/* Desktop: original grid */}
+          <div className="hidden md:grid grid-cols-3 gap-6 justify-items-center">
+            {consultationItems.map((item, i) => (
+              <div key={i} className="flex flex-col items-center gap-4">
+                <div style={{
+                  background: 'linear-gradient(135deg, #FEBE01 0%, #4E1912 100%)',
+                  borderRadius: '20px', padding: '3px',
+                  width: '221px', height: '221px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  <div style={{
+                    background: 'white', borderRadius: '18px',
+                    width: '100%', height: '100%',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <img src={item.gif} alt={item.lines[0]} style={{ width: '190px', height: '190px', objectFit: 'contain' }} />
+                  </div>
+                </div>
+                <p style={{ fontFamily: 'Lexend', fontWeight: 400, fontSize: '32px', color: '#000', textAlign: 'center', lineHeight: '1.3' }}>
+                  {item.lines.map((line, j) => (<span key={j}>{line}{j < item.lines.length - 1 && <br />}</span>))}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="w-full py-20 bg-white">
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-16">
+          <div className="flex flex-col items-center gap-8">
+            {/* First row: 1,200 and 500+ */}
+            <div className="flex flex-wrap justify-center gap-12 lg:gap-20" style={{ direction: isAr ? 'rtl' : 'ltr' }}>
+              {(isAr ? [
+                { number: t('stats.s2Number'), desc: t('stats.s2Desc') },
+                { number: t('stats.s1Number'), desc: t('stats.s1Desc') },
+              ] : [
+                { number: t('stats.s1Number'), desc: t('stats.s1Desc') },
+                { number: t('stats.s2Number'), desc: t('stats.s2Desc') },
+              ]).map((stat, i) => (
+                <div key={i} className="flex flex-col items-start gap-1">
+                  <div className="flex items-center gap-3">
+                    <CountUp value={stat.number} style={{
+                      fontFamily: 'Lexend', fontWeight: 300,
+                      fontSize: 'clamp(48px, 6vw, 96px)',
+                      backgroundImage: 'linear-gradient(to bottom, #F9BA01, #663010)',
+                      backgroundSize: 'cover', backgroundPosition: 'bottom',
+                      WebkitBackgroundClip: 'text', backgroundClip: 'text',
+                      color: 'transparent', WebkitTextFillColor: 'transparent',
+                      lineHeight: 1,
+                    }} />
+                    <span style={{
+                      fontFamily: 'Lexend', fontWeight: 400,
+                      fontSize: 'clamp(14px, 1.5vw, 20px)',
+                      color: '#333', whiteSpace: 'pre-line', lineHeight: 1.3,
+                    }}>{stat.desc}</span>
+                  </div>
+                  <div style={{ height: '2px', width: '80%', background: 'linear-gradient(to right, #FEBE01, #4E1912)' }} />
+                </div>
+              ))}
+            </div>
+            {/* Second row: 24 centered */}
+            <div className="flex flex-col items-center gap-1">
+              <span style={{ visibility: 'hidden', fontSize: 'clamp(60px, 10vw, 160px)', fontWeight: 500, lineHeight: 1, display: 'block' }}>{t('stats.s3Number')}</span>
+              <CountUp value={t('stats.s3Number')} style={{
+                fontFamily: 'Lexend', fontWeight: 500,
+                fontSize: 'clamp(60px, 10vw, 160px)',
+                backgroundImage: 'linear-gradient(to bottom, #F9BA01, #663010)',
+                backgroundSize: 'cover', backgroundPosition: 'bottom',
+                WebkitBackgroundClip: 'text', backgroundClip: 'text',
+                color: 'transparent', WebkitTextFillColor: 'transparent',
+                lineHeight: 1, display: 'block', textAlign: 'center', width: '100%',
+              }} />
+              <div style={{ height: '2px', width: '100%', background: 'linear-gradient(to right, #FEBE01, #4E1912)' }} />
+              <span style={{
+                fontFamily: 'Lexend', fontWeight: 400,
+                fontSize: 'clamp(14px, 1.5vw, 20px)',
+                color: '#333', textAlign: 'center', width: '100%', display: 'block',
+                whiteSpace: 'pre-line',
+              }}>{t('stats.s3Desc')}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="w-full relative bg-white pt-8 lg:pt-32">
+        <img
+          src="/Subtract.png"
+          alt="Background"
+          className="absolute -top-[100px] w-[280%] h-[180vh] object-contain opacity-50 pointer-events-none"
+          style={{
+            right: isAr ? 'auto' : '-500px',
+            left: isAr ? '-500px' : 'auto',
+            transform: isAr ? 'scaleX(-1)' : 'none',
+            zIndex: 1
+          }}
+        />
+        <div className="text-center px-4 py-8 relative z-10">
+          <h2 className="font-bold" style={{
+            fontFamily: 'Lexend',
+            fontSize: 'clamp(20px, 5vw, 64px)',
+            lineHeight: '1.2',
+            backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'top',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+          }}>{t('faq.title')}</h2>
+        </div>
+        <div className="bg-black py-12 lg:py-16 relative" dir={isAr ? 'rtl' : 'ltr'}>
+          <div className="max-w-7xl mx-auto px-4 lg:px-8 relative">
+            <div className="flex flex-col lg:flex-row items-stretch gap-8 min-h-[600px]">
+              <div className="w-full lg:w-1/2 space-y-6 z-10 order-2 lg:order-1">
+                {faqs.length === 0 ? (
+                  <p className="text-gray-400">No questions available.</p>
+                ) : faqs.map((faq) => (
+                  <div key={faq.id} className="pb-6">
+                    <div
+                      className="flex items-center justify-between cursor-pointer mb-4"
+                      onClick={() => toggleQuestion(faq.id)}
+                    >
+                      <h4 className="text-lg font-medium text-white leading-relaxed flex-1">{faq.question}</h4>
+                      <span className="text-2xl text-yellow-500 mr-4 flex-shrink-0">
+                        {openQuestion === faq.id ? '−' : '+'}
+                      </span>
+                    </div>
+                    <div className="w-full mb-4">
+                      <div className="w-full h-1 bg-orange-400"></div>
+                      <div className="w-full h-0.5 bg-orange-300 opacity-60 mt-1"></div>
+                    </div>
+                    {openQuestion === faq.id && (
+                      <div className="mb-4">
+                        <div className="text-green-400 font-semibold mb-3 text-lg">{t('faq.answer')}</div>
+                        <p className="text-gray-300 leading-relaxed text-sm">{faq.answer}</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="hidden lg:flex w-full lg:w-1/2 flex-col lg:flex-row items-center justify-center gap-6 order-1 lg:order-2">
+                <img
+                  src="/2 post 1 (1).png"
+                  alt="Abdullah Al-Nasr"
+                  className="w-full max-w-[900px]"
+                  style={{height: 'auto'}}
+                />
+                <img
+                  src="/Mask group (7).png"
+                  alt=""
+                  className="w-full max-w-[250px]"
+                  style={{height: 'auto', transform: isAr ? 'scaleX(-1)' : 'none', marginTop: '-30px'}}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Contact Section */}
+      <section className="w-full py-12 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+          {/* 3 Cards - Mobile: horizontal scroll, Desktop: grid */}
+          {/* Mobile: auto-scroll */}
+          {contactCards.length > 0 && <ContactCardsCarousel items={contactCards} />}
+
+          {/* Desktop: original grid */}
+          {contactCards.length > 0 && (
+            <div className="hidden md:grid grid-cols-3 gap-6 mb-6">
+              {contactCards.map((item, i) => (
+              <div key={i} style={{ border: '2px solid #D8A10F', borderRadius: '16px', overflow: 'hidden', background: '#fff' }}>
+                <div style={{ background: '#111', padding: '32px 24px', borderRadius: '16px 16px 24px 24px', boxShadow: '0 8px 16px 2px rgba(0,0,0,0.15)', position: 'relative', zIndex: 2, marginBottom: '-20px' }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span style={{ color: '#fff', fontSize: '20px' }}>{item.icon}</span>
+                    <span style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: '20px', backgroundImage: 'linear-gradient(to right, #D8A10F, #EEC62D, #D3990C)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{item.title}</span>
+                  </div>
+                  <p style={{ fontFamily: 'Lexend', fontSize: '14px', color: '#fff', wordBreak: 'break-all' }}>{item.value}</p>
+                </div>
+                <div style={{ background: '#fff', padding: '36px 24px 14px 24px' }}>
+                  <p style={{ fontFamily: 'Lexend', fontSize: '18px', fontWeight: 700, color: '#111', whiteSpace: 'pre-line' }}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          )}
+
+          {/* Share Section */}
+          <div style={{ border: '2px solid #F9BA01', borderRadius: '16px', background: '#111', padding: '24px 32px' }}>
+            <p style={{ fontFamily: 'Lexend', fontSize: '14px', color: '#fff', marginBottom: '8px' }}>{t('social.shareTitle')}</p>
+            <div style={{ height: '1px', background: '#333', marginBottom: '20px', width: '200px' }} />
+            <div className="flex items-center justify-center gap-6">
+              {contactInfo && [
+                { label: 'Facebook', url: contactInfo.facebook_url, path: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z' },
+                { label: 'Instagram', url: contactInfo.instagram_url, path: 'M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 6.5h11a1 1 0 011 1v11a1 1 0 01-1 1h-11a1 1 0 01-1-1v-11a1 1 0 011-1z' },
+                { label: 'X', url: contactInfo.twitter_url, path: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z' },
+                { label: 'LinkedIn', url: contactInfo.linkedin_url, path: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z' },
+                { label: 'TikTok', url: contactInfo.tiktok_url, path: 'M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z' },
+              ].filter(s => s.url).map((s, i) => (
+                <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ width: '44px', height: '44px', borderRadius: '50%', border: '2px solid #fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d={s.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Info Section */}
+      
+    </div>
+  );
+}
+
+export default Contact;

@@ -1,0 +1,60 @@
+{
+  "breadcrumb": {
+    "home": "الرئيسية",
+    "courses": "الدورات",
+    "subscribe": "اشترك"
+  },
+  "instructor": "المدرب",
+  "lastUpdate": "آخر تحديث",
+  "certifiedCourse": "دورة معتمدة",
+  "tabs": {
+    "all": "الكل",
+    "overview": "نظرة عامة",
+    "content": "محتوى الدورة",
+    "details": "التفاصيل",
+    "instructor": "المدرب",
+    "reviews": "التقييمات"
+  },
+  "overview": {
+    "title": "ماذا ستتعلم؟",
+    "showMore": "عرض المزيد"
+  },
+  "content": {
+    "title": "محتوى الدورة",
+    "lessons": "محاضرة",
+    "free": "مجاني",
+    "loading": "جاري التحميل...",
+    "showMore": "عرض المزيد"
+  },
+  "details": {
+    "title": "تفاصيل الدورة",
+    "level": "المستوى:",
+    "language": "اللغة:",
+    "duration": "المدة:",
+    "showMore": "عرض المزيد"
+  },
+  "instructorSection": {
+    "title": "عن المدرب",
+    "role": "خبير التصميم الجرافيكي",
+    "bio": "مصمم جرافيك محترف بخبرة تزيد عن 10 سنوات في المجال."
+  },
+  "sidebar": {
+    "play": "تشغيل",
+    "tryFree": "جرب درساً مجانياً",
+    "subscribeNow": "← اشترك الآن",
+    "includes": "ماذا يتضمن محتوى الدورة؟",
+    "features": {
+      "certificate": "شهادة معتمدة",
+      "lifetime": "دفعة واحدة مدى الحياة",
+      "download": "تحميل الملفات والموارد الداعمة",
+      "access": "وصول غير محدود للمحتوى المسجل"
+    },
+    "freeLessons": "لديك {count} محاضرات مجانية متاحة للتجربة",
+    "watch": "شاهد",
+    "share": "شارك الدورة"
+  },
+  "reviews": {
+    "title": "التقييمات"
+  },
+  "loading": "جاري التحميل..."
+}

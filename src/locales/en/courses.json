@@ -1,0 +1,122 @@
+{
+  "design": {
+    "heading": "Start your transformation journey here",
+    "subtitle1": "More than just a course... ",
+    "subtitle2": "it's your new professional future."
+  },
+  "ph": {
+    "desc": "We know you don't just want to learn Photoshop; you want a clear path to reach elite clients in the Gulf. Forget traditional learning methods. At ANS Academy, our curriculum is derived from the heart of real projects in the GCC countries. We are saving you years of trial and error to give you the exact expertise the Gulf market needs right now:"
+  },
+  "benefits": {
+    "b1Title": "You will think like a strategist, not just an executive.",
+    "b1Sub": "Mindset & Branding (The Strategic Foundation)",
+    "b1Desc": "You won't only learn how to design a logo, but how to analyze a brand, think outside the box, and build a complete visual identity that tells a story and creates real impact.",
+    "b2Title": "Real-world projects that reflect reality.",
+    "b2Sub": "Practical Experience (Portfolio)",
+    "b2Desc": "Stop training on hypothetical projects. Together, you will execute real projects with clear, structured steps to graduate with a professional Portfolio designed to capture the attention of major companies.",
+    "b3Title": "You'll dominate the Gulf job market intelligently.",
+    "b3Sub": "Mastering the Market & Money (The Business of Design)",
+    "b3Desc": "We reveal to you the secrets of dealing with VIP clients in the Gulf, how to convince clients of higher budgets without hesitation, and how to manage your projects with complete professionalism — without stress or chaos.",
+    "b4Title": "Support & Follow-Up (Security & Confidence)",
+    "b4Sub": "With us... you're never alone.",
+    "b4Desc": "Your journey doesn't end when the course ends. You'll receive continuous feedback on your work, strategic guidance for your career path, and practical advice that sets you apart from any other designer in the market.",
+    "quote1": "I possess the secrets of the elite that will open doors for you to major companies in the Gulf, with",
+    "quote2": "Abdullah Al-Nasr."
+  },
+  "instructor": {
+    "a1": "Visual Identity Expert: Over 8 years of experience at the heart of leading creative agencies in Saudi Arabia and Egypt.",
+    "a2": "Creator of the \"Design your Income\" methodology: Empowered hundreds of designers to achieve exceptional financial and professional breakthroughs.",
+    "a3": "Mentor of professionals: Supervised and guided 500+ designers who have now become the first choice for major companies.",
+    "a4": "Market Psychology Expert: Combines artistic creativity with business strategy to ensure designs that never get rejected.",
+    "quote": "I am not here to just teach you a few (Tools), but to give you the 'Code' that makes your designs worth hundreds of dollars. In this course, I will share with you all the trade secrets I've learned in the field, so you can save yourself years of trial and error."
+  },
+  "courses": {
+    "title": "Our Course",
+    "subscribeBtn": "subscribe to the course"
+  },
+  "value": {
+    "h1": "I'm not here to teach you",
+    "h1Gray": "just a tool (Tools).",
+    "p1": "I'm here to give you the 'code' that makes your designs worth hundreds of dollars. In this course, I'll share with you all the professional secrets I've learned in the field — so you can skip years of trial and error.\"",
+    "h2": "Join the elite",
+    "h2Gray": "community of creative designers.",
+    "p2": "We take pride in our graduates who started their journey with us and today, they are part of some of the biggest advertising and marketing agencies across the Arab world."
+  },
+  "certifications": {
+    "our": "Our",
+    "title": "Certifications",
+    "subtitle": "reflect confidence",
+    "label": "CERTIFICATIONS",
+    "student": "Student",
+    "excellence": "Excellence in Graphic Design",
+    "defaultDesc": "vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve them. It is a wonderful thing, when you work in a field the environment that always strives for success.",
+    "loading": "Loading...",
+    "viewAll": "View All Certifications"
+  },
+  "faq": {
+    "title": "Your question",
+    "answer": "Answer"
+  },
+  "comment": {
+    "title": "Post A Comment",
+    "subtitle": "Your email address will not be published *",
+    "commentPlaceholder": "Your Comment",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email Address",
+    "websitePlaceholder": "Website",
+    "rating": "Rating:",
+    "sendBtn": "Send Comment",
+    "success": "Comment sent successfully!",
+    "error": "Failed to send comment. Please try again."
+  },
+  "courseVideos": {
+    "our": "Our",
+    "title": "Course videos",
+    "choosePath": "Choose your path",
+    "toSuccess": "to success.",
+    "emailPlaceholder": "Enter Your Email",
+    "subscribeCourse": "Subscribe to the course",
+    "ourCourse": "Our Course"
+  },
+  "courseDetails": {
+    "home": "Home",
+    "courses": "Courses",
+    "subscribe": "Subscribe",
+    "instructor": "Instructor",
+    "lastUpdate": "Last update",
+    "certified": "Certified course",
+    "whatLearn": "What will you learn?",
+    "courseContent": "Course content",
+    "lessons": "lessons",
+    "courseDetailsTab": "Course Details",
+    "level": "Level:",
+    "language": "Language:",
+    "duration": "Duration:",
+    "aboutInstructor": "About the Instructor",
+    "graphicExpert": "Graphic Design Expert",
+    "instructorBio": "Professional graphic designer with over 10 years of experience in the field.",
+    "coursePrice": "Course price",
+    "watchNow": "Watch now →",
+    "subscribeNow": "Subscribe now →",
+    "tryFree": "Try Free Lesson ⟲",
+    "courseIncludes": "What does the course content include?",
+    "freeLessons": "You have {{count}} free lessons available to try",
+    "watch": "watch",
+    "shareTitle": "Share the course",
+    "reviews": "Reviews",
+    "features": {
+      "f1": "Accredited certificate",
+      "f2": "Lifetime payment",
+      "f3": "Download files and supporting resources",
+      "f4": "Unlimited access to recorded content"
+    },
+    "tabs": {
+      "all": "All",
+      "overview": "Overview",
+      "content": "Course content",
+      "details": "Details",
+      "instructor": "Instructor",
+      "reviews": "Reviews"
+    }
+  }
+}

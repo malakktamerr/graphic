@@ -1,0 +1,60 @@
+{
+  "mission": {
+    "badge": "Our mission",
+    "mobile": "Our mission is for ANS Courses to become the premier standard of quality in the Gulf, where not just students graduate, but creative partners emerge to lead the identity of major brands.",
+    "desktop": "Our mission is for ANS Courses to become the premier\nstandard of quality in the Gulf, where not just students\ngraduate, but creative partners emerge to lead the\nidentity of major brands."
+  },
+  "secret": {
+    "mobile": "What is the secret that made our platform the top destination for elite designers in the Gulf?",
+    "desktop": "What is the secret that\nmade our platform the\ntop destination for elite\ndesigners in the Gulf?"
+  },
+  "philosophy": {
+    "lines": [
+      "At ANS courses, our philosophy transcends the",
+      "limitations of educational tools. We shape the",
+      "professional future of every designer. Our passion",
+      "is transforming talent from a mere hobby into a",
+      "sovereign manager, resulting in designers who",
+      "don't find opportunities, but rather create them.",
+      "Our philosophy rests on four pillars."
+    ]
+  },
+  "pillars": {
+    "pillar1": {
+      "title": "A deep understanding of the psychology of the Gulf market:",
+      "text": "We don't teach general design; rather, we reveal to you the secrets of refined taste and the high-quality standards demanded by leading companies in the Arab world. Our goal is for you to master the \"language of the market,\" so you become a designer understood and appreciated by clients at first glance."
+    },
+    "pillar2": {
+      "title": "Business of Design methodology:",
+      "text": "Talent alone is not enough. The biggest gap in our region is the talented designer who doesn't know how to sell themselves or their project. Our curriculum places negotiation skills, strategic pricing, and project management at the heart of our education, transforming you from an order fulfiller to a technical consultant who leads projects and makes decisions with confidence."
+    },
+    "pillar3": {
+      "title": "Real-world agency simulation (Real-world Workflow):",
+      "text": "True learning begins when theorizing stops. Our projects aren't just academic exercises; they're a realistic simulation of the creative agencies industry. You'll learn how to build strategy and present your work professionally, ensuring you stand out and land the biggest projects."
+    },
+    "pillar4": {
+      "title": "A lifetime asset that grows forever.",
+      "text": "Subscribing to our service isn't just about accessing educational videos; it's about acquiring a lasting professional asset. Our content is constantly updated to keep pace with AI technologies and market changes, ensuring you always stay ahead, at no extra cost."
+    }
+  },
+  "impact": {
+    "title": "Our Impact in\nNumbers",
+    "stat1": {
+      "value": "23+",
+      "label": "Content that is constantly updated to\nreflect actual market needs"
+    },
+    "stat2": {
+      "value": "350+",
+      "label": "Designers who developed their career\npaths in the Gulf."
+    }
+  },
+  "experience": {
+    "label": "Years of\nExperience",
+    "vertical": "EXPERIENCE",
+    "description": "At ANS Courses we don't make promises...\nwe offer a path backed by numbers and results."
+  },
+  "values": {
+    "title": "Our Values",
+    "subtitle": "What We Stand For"
+  }
+}

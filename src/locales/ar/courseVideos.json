@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "our": "فديوهات",
+    "title": "الدورات التدريبية",
+    "choosePath": "اختر مسارك نحو",
+    "toSuccess": "النجاح"
+  },
+  "access": {
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "loading": "جارٍ التحميل...",
+    "getAccess": "احصل على وصول مبكر",
+    "networkError": "خطأ في الاتصال.",
+    "studentsAccess": "طالب مسجّل بالفعل"
+  },
+  "subscribe": "اشترك في الدورة",
+  "ourCourse": "دوراتنا",
+  "grid": {
+    "loading": "جارٍ التحميل...",
+    "min": "دقيقة",
+    "na": "غير محدد",
+    "students": "طالب",
+    "levels": {
+      "beginner": "مبتدئ",
+      "intermediate": "متوسط",
+      "advanced": "متقدم",
+      "all": "جميع المستويات"
+    }
+  }
+}

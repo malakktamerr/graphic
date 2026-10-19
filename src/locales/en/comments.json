@@ -1,0 +1,12 @@
+{
+  "title": "Post A Comment",
+  "emailNote": "Your email address will not be published *",
+  "commentPlaceholder": "Your Comment",
+  "namePlaceholder": "Name",
+  "emailPlaceholder": "Email Address",
+  "websitePlaceholder": "Website",
+  "rating": "Rating:",
+  "sendComment": "Send Comment",
+  "successMessage": "Comment sent successfully!",
+  "errorMessage": "Failed to send comment. Please try again."
+}

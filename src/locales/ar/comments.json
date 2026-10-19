@@ -1,0 +1,12 @@
+{
+  "title": "اترك تعليقاً",
+  "emailNote": "لن يتم نشر عنوان بريدك الإلكتروني *",
+  "commentPlaceholder": "تعليقك",
+  "namePlaceholder": "الاسم",
+  "emailPlaceholder": "البريد الإلكتروني",
+  "websitePlaceholder": "الموقع الإلكتروني",
+  "rating": "التقييم:",
+  "sendComment": "إرسال التعليق",
+  "successMessage": "تم إرسال التعليق بنجاح!",
+  "errorMessage": "فشل إرسال التعليق. يرجى المحاولة مرة أخرى."
+}

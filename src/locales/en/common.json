@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "about": "About",
+    "contact": "Contact",
+    "instructor": "Instructor",
+    "courseVideos": "Course Videos",
+    "certifications": "Certifications",
+    "subscribe": "Subscribe",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "logout": "Logout"
+  },
+  "footer": {
+    "contactInfo": "Contact information",
+    "location": "Kingdom of Saudi Arabia",
+    "email": "abdullahenasrabdullahenasr@gmail.com"
+  },
+  "buttons": {
+    "viewAllCourses": "View All Courses",
+    "viewAllCertifications": "View All Certifications",
+    "learnMore": "Learn more",
+    "getEarlyAccess": "Get Early Access",
+    "subscribeNow": "Subscribe now",
+    "tryFreeLesson": "Try Free Lesson",
+    "sendMessage": "Send message",
+    "back": "← Back",
+    "showMore": "Show more"
+  },
+  "students": "Students",
+  "minute": "Minute",
+  "loading": "Loading...",
+  "noImage": "No Image",
+  "answer": "Answer",
+  "free": "Free",
+  "studentsAccess": "Students already Access"
+}

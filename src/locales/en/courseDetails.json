@@ -1,0 +1,60 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "courses": "Courses",
+    "subscribe": "Subscribe"
+  },
+  "instructor": "Instructor",
+  "lastUpdate": "Last update",
+  "certifiedCourse": "Certified course",
+  "tabs": {
+    "all": "All",
+    "overview": "Overview",
+    "content": "Course content",
+    "details": "Details",
+    "instructor": "Instructor",
+    "reviews": "Reviews"
+  },
+  "overview": {
+    "title": "What will you learn?",
+    "showMore": "Show more"
+  },
+  "content": {
+    "title": "Course content",
+    "lessons": "lessons",
+    "free": "Free",
+    "loading": "Loading...",
+    "showMore": "Show more"
+  },
+  "details": {
+    "title": "Course Details",
+    "level": "Level:",
+    "language": "Language:",
+    "duration": "Duration:",
+    "showMore": "Show more"
+  },
+  "instructorSection": {
+    "title": "About the Instructor",
+    "role": "Graphic Design Expert",
+    "bio": "Professional graphic designer with over 10 years of experience in the field."
+  },
+  "sidebar": {
+    "play": "Play",
+    "tryFree": "Try Free Lesson",
+    "subscribeNow": "Subscribe now →",
+    "includes": "What does the course content include?",
+    "features": {
+      "certificate": "Accredited certificate",
+      "lifetime": "Lifetime payment",
+      "download": "Download files and supporting resources",
+      "access": "Unlimited access to recorded content"
+    },
+    "freeLessons": "You have {count} free lessons available to try",
+    "watch": "watch",
+    "share": "Share the course"
+  },
+  "reviews": {
+    "title": "Reviews"
+  },
+  "loading": "Loading..."
+}

@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "courses": "الكورسات",
+    "about": "من نحن",
+    "contact": "تواصل معنا",
+    "instructor": "المدرب",
+    "courseVideos": "فيديوهات الكورس",
+    "certifications": "الشهادات",
+    "subscribe": "اشترك",
+    "login": "تسجيل الدخول",
+    "signUp": "إنشاء حساب",
+    "logout": "تسجيل الخروج"
+  },
+  "footer": {
+    "contactInfo": "معلومات التواصل",
+    "location": "المملكة العربية السعودية",
+    "email": "abdullahenasrabdullahenasr@gmail.com"
+  },
+  "buttons": {
+    "viewAllCourses": "عرض جميع الكورسات",
+    "viewAllCertifications": "عرض جميع الشهادات",
+    "learnMore": "اعرف أكثر",
+    "getEarlyAccess": "احصل على وصول مبكر",
+    "subscribeNow": "اشترك الآن",
+    "tryFreeLesson": "جرب درساً مجانياً",
+    "sendMessage": "إرسال الرسالة",
+    "back": "→ رجوع",
+    "showMore": "عرض المزيد"
+  },
+  "students": "طالب",
+  "minute": "دقيقة",
+  "loading": "جاري التحميل...",
+  "noImage": "لا توجد صورة",
+  "answer": "الإجابة",
+  "free": "مجاني",
+  "studentsAccess": "طالب حصلوا على وصول"
+}

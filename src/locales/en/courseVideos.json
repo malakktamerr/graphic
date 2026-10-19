@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "our": "Our",
+    "title": "Course videos",
+    "choosePath": "Choose your path",
+    "toSuccess": "to success."
+  },
+  "access": {
+    "emailPlaceholder": "Enter Your Email",
+    "loading": "Loading...",
+    "getAccess": "Get Early Access",
+    "networkError": "Network error.",
+    "studentsAccess": "Students already enrolled"
+  },
+  "subscribe": "Subscribe to the course",
+  "ourCourse": "Our Course",
+  "grid": {
+    "loading": "Loading...",
+    "min": "min",
+    "na": "N/A",
+    "students": "Students",
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "all": "All Levels"
+    }
+  }
+}

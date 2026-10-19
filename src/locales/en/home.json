@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "line1": "Don't Just",
+    "line2": "Learn Design",
+    "subtitle": "Master the Business of Design",
+    "signIn": "Sign in",
+    "createAccount": "Create account"
+  },
+  "earlyAccess": {
+    "line1": "Become a designer who creates",
+    "line2": "impact and builds a high income",
+    "line3": "career in the Gulf and global",
+    "line4": "markets",
+    "line5": "",
+    "tagline": "Training, Practice, Portfolio, Certificate, And Successful Career All In One.",
+    "tagline2": "",
+    "designYourIncome": "Design Your Income",
+    "lifetimeSubscription": "Lifetime subscription",
+    "emailPlaceholder": "Enter Your Email",
+    "getEarlyAccess": "Get Early Access"
+  },
+  "about": {
+    "title1": "Why has our platform become",
+    "title2": "the number one destination for",
+    "title3": "elite designers in the Gulf and the",
+    "title4": "Arab world?",
+    "point1": "Because we don't just offer a training course; we give you the secret formula for professional and financial success.",
+    "point2": "We develop professional designers who are ready to enter the market with confidence and turn their skills into real, sustainable income.",
+    "point3": "Through clear steps and a practical approach that reflects the reality of the market, we put you directly on the path to professionalism and distinction."
+  },
+  "services": {
+    "name": "Abdullah ElNasr",
+    "subtitle": "A vision that began in the heart of the market",
+    "bio1": "For eight years, my passion has been more than just designing beautiful images; it's understanding the business psychology behind every pixel. After working with major agencies and brands, I've realized that Arab designers possess talent, but they need a clear professional roadmap to place them where they deserve to be.",
+    "bio2": "ANS Courses is the culmination of my journey... I designed it to be the practical professional guide that saves you years of trial and error, so that you can be the next success story.",
+    "learnMore": "Learn more"
+  },
+  "offer": {
+    "card1Title": "Practical, Real-World Experience",
+    "card1Desc": "We provide you with the essence of years of real-work experience: executing realistic projects, understanding client mindset and requirements, and creating work that commands high prices.",
+    "card2Title": "Learning with a Professional Mindset",
+    "card2Desc": "You won't just learn software and tools; you'll learn how a professional designer thinks: how to analyze, how to innovate, and how to deliver design that sells and is valued.",
+    "card3Title": "Mastering the Job Market (Especially the Gulf)",
+    "card3Desc": "We reveal the secrets of dealing with premium clients, how to price your work ideally, and how to manage your career professionally without missing deals.",
+    "quote": "\"You aren't just buying a course... you are investing in a professional asset that grows with you for a lifetime. One decision, continuous growth, and the power to always keep you at the forefront of the elite.\""
+  },
+  "whyChoose": {
+    "title": "Why choose",
+    "us": "us?",
+    "desc": "Because we focus on real results... We equip you to be a sought-after, confident, and influential designer in the market."
+  },
+  "trainees": {
+    "line1": "Our group of departments",
+    "line2": "rivals the highest quality",
+    "line3": "and international design",
+    "line4": "agencies"
+  },
+  "instructorAbout": {
+    "who": "Who is the leader?",
+    "meet": "Meet Your Mentor",
+    "bio1": "For eight years, my passion has been more than just designing beautiful images;",
+    "bio2": "it's understanding the business psychology behind every pixel.",
+    "bio3": "After working with major agencies and brands, I've realized that Arab designers",
+    "bio4": "possess talent, but they need a clear professional roadmap to place them where they deserve to be.",
+    "bio5": "ELnasr courses is the culmination of my journey.. I designed it to be the practical professional guide that saves",
+    "bio6": "you years of trial and error, so that you can be the next success story."
+  },
+  "designTools": {
+    "quote": "\"Tools of the Trade, Skills for the Market.\"",
+    "line1": "We don't just teach software we teach you how to use",
+    "line2": "to deliver world-class results that clients are eager to pay for."
+  },
+  "coursesGrid": {
+    "title": "Course videos",
+    "subtitle1": "Carefully designed training pathways",
+    "subtitle2": "to move you from the implementer",
+    "subtitle3": "stage to the status of creative partner",
+    "viewAll": "View All courses"
+  },
+  "courseCard": {
+    "title": "Free lecture",
+    "desc": "\"Take your seat now in a free lecture, where we\nopen the doors to our backstage to show you\nthe methodology by which we transform silent\nideas into market-leading visual identities, and\ndiscover the secret of the gap that separates\nthe amateur designer from the global\n professional.\"",
+    "minute": "1 Minute",
+    "students": "10,000 Students",
+    "reviews": "(600,00 review)",
+    "enrollCourse": "Enroll Course"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "Student's Feedback",
+    "desc1": "Elite voices: Success stories that began with passion and transformed into tangible professional realities thanks to methodology.",
+    "desc2": "Testimonials: From the classroom to leading their own projects"
+  },
+  "certifications": {
+    "our": "Our",
+    "title": "Certifications",
+    "reflect": "reflect confidence",
+    "label": "CERTIFICATIONS",
+    "viewAll": "View All Certifications"
+  },
+  "contact": {
+    "title": "trainees projects"
+  },
+  "portfolio": {
+    "title": "Our Customers"
+  },
+  "courseProjects": {
+    "title": "Course projects",
+    "subtitle": "This is the level you will reach at the end of the course."
+  },
+  "successStory": {
+    "line1": "Don't just watch others",
+    "line2": "succeed... Be the next",
+    "line3": "success story."
+  },
+  "support": {
+    "im": "I'm",
+    "alwaysWith": "Always With You,",
+    "to": "To",
+    "solveAny": "Solve Any Problem",
+    "desc": "Feel free to let me know if there is any problem with the work and solve it."
+  }
+}

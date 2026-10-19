@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "readyTo": "Ready to",
+    "connect": "connect with us",
+    "letsTalk": "Let's talk about your next project"
+  },
+  "secureSpot": "\"Secure Your Spot in the World of Professionals\"",
+  "form": {
+    "title": "Feedback Form",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "emailPlaceholder": "Username@gmail.com",
+    "faqLabel": "Frequently Asked Questions (Choose)",
+    "levelQ": "What is your current level in design ?",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "professional": "Professional",
+    "goalQ": "What is your goal from the course ?",
+    "goal1": "I want to work as a freelancer and increase my income",
+    "goal2": "I want to get a job at a major company",
+    "goal3": "I want to develop my personal design skills",
+    "message": "Message",
+    "sendBtn": "Send message"
+  },
+  "consultation": {
+    "title": "Start your journey of change\nand get your free consultation\nnow.",
+    "item1": ["Analysis of", "your current", "situation"],
+    "item2": ["A comprehensive answer to all your", "questions about", "the job market"],
+    "item3": ["Develop a clear", "business plan", "to generate", "profits."]
+  },
+  "stats": {
+    "s1Number": "1,200",
+    "s1Desc": "projects completed\nby our students",
+    "s2Number": "500+",
+    "s2Desc": "students from the\nGulf countries",
+    "s3Number": "24",
+    "s3Desc": "support available 24/7"
+  },
+  "faq": {
+    "title": "Your question",
+    "answer": "Answer"
+  },
+  "social": {
+    "email": "Email",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp Business",
+    "emailDesc": "Submit your request",
+    "telegramDesc": "Follow student results and\nbehind-the-scenes work",
+    "whatsappDesc": "Speak directly with the\ntechnical support team",
+    "shareTitle": "Share the course"
+  }
+}
