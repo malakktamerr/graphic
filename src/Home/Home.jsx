@@ -87,27 +87,6 @@ const Home = () => {
       {/* قسم السكرول الجانبي للبطاقات */}
       <ScrollAnimation><TraineesShowcase /></ScrollAnimation>
 
-      {/* الجملة المتدرجة من الأسود إلى الرمادي بعد السكرول الجانبي */}
-      <ScrollAnimation>
-        <div className="text-center my-12 sm:my-16 px-6 max-w-5xl mx-auto">
-          <p
-            className="font-bold leading-relaxed break-words"
-            style={{
-              fontSize: 'clamp(1.1rem, 3vw, 2.3rem)',
-              backgroundImage: 'linear-gradient(180deg, #000000 0%, #4A4A4A 50%, #8E8E8E 100%)',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              color: 'transparent',
-              wordBreak: 'break-word',
-              overflowWrap: 'break-word',
-            }}
-          >
-            أنت لا تشتري مجرد دورة تدريبية، بل تستثمر في أصل مهني ينمو معك مدى الحياة، قرار واحد، نمو مستمر، وقوة تُبقيك دائماً في طليعة النخبة.
-          </p>
-        </div>
-      </ScrollAnimation>
-
       <ScrollAnimation><InstructorAbout /></ScrollAnimation>
       <ScrollAnimation><ServicesSection /></ScrollAnimation>
       <ScrollAnimation><PortfolioSection /></ScrollAnimation>

@@ -128,10 +128,8 @@ const CourseProjectsSection = () => {
           <div className="w-10 h-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="space-y-12 relative">
+        <div className="relative">
           <div className="relative z-10"><SwiperRow images={row1} reverse={false} speed={4000} /></div>
-          <div className="relative z-10"><SwiperRow images={row2} reverse={true} speed={3500} /></div>
-          <div className="relative z-10"><SwiperRow images={row3} reverse={false} speed={4500} /></div>
         </div>
       )}
     </section>

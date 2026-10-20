@@ -106,26 +106,18 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <AnimatedWords
-            text={t('testimonials.title')}
-            className="mb-3 sm:mb-4 font-bold"
-            style={{
-              fontSize: 'clamp(36px, 7vw, 96px)',
-              backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              color: 'transparent'
-            }}
-          />
-          <AnimatedWords
-            text={t('testimonials.subtitle')}
-            as="h3"
-            className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4"
-            style={{ color: '#000000' }}
-          />
+          <h2 className="mb-3 sm:mb-4 font-bold" style={{
+            fontSize: 'clamp(36px, 7vw, 96px)',
+            backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            color: 'transparent'
+          }}>
+            أداء المتدربين
+          </h2>
           <div className="max-w-4xl mx-auto" style={{ fontFamily: 'Lexend', fontSize: 'clamp(14px, 2.5vw, 32px)', fontWeight: 600, lineHeight: 1.4 }}>
             {isAr ? (
               <>

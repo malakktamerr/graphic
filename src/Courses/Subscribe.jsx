@@ -936,8 +936,9 @@ function Subscribe() {
               {/* White Box inside Black Box (Plan row) */}
               <div className="bg-white text-black rounded-2xl overflow-hidden mb-6 shadow-md">
                 <div className="flex items-center justify-between p-4">
+                  
                    <div className="text-left">
-                    <p className="font-extrabold text-black text-sm">معيار البديل</p>
+                    <p className="font-extrabold text-black text-lg">معيار البديل</p>
                     <p className="text-gray-500 text-xs">مدي الحياة</p>
                   </div>
                   <div className="flex items-baseline gap-1.5">
@@ -946,7 +947,7 @@ function Subscribe() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-end bg-zinc-300 px-4 py-3 border-t border-zinc-300 gap-3">
+                <div className="flex items-center justify-center bg-zinc-300 px-4 py-3 border-t border-zinc-300 gap-3">
                   <span className="text-xs font-bold text-black">أحصل علي الخصم</span>
                   <span className="text-xs font-bold text-black bg-zinc-400/60 px-2.5 py-0.5 rounded">خصم 20%</span>
                   <div className="w-10 h-6 bg-black rounded-full relative flex items-center px-1">

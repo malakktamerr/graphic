@@ -40,8 +40,8 @@ function TraineesShowcase() {
   if (projects.length === 0) return null;
 
   return (
-    <section className="w-full py-16 bg-white">
-      <div className="text-center mb-16 px-8 sm:px-16 lg:px-24">
+    <section className="w-full py-16 bg-white overflow-visible">
+      <div className="text-center mb-16 px-4 sm:px-8 lg:px-16 overflow-visible">
         {['line1', 'line2', 'line3', 'line4'].map((key) =>
           t(`trainees.${key}`) ? (
             <h2
@@ -86,16 +86,16 @@ function TraineesShowcase() {
         modules={[Autoplay]}
         centeredSlides={true}
         slidesPerView={1.1}
-        spaceBetween={10}
+        spaceBetween={4}
         loop={true}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         observer={true}
         observeParents={true}
         watchSlidesProgress={true}
         breakpoints={{
-          480: { slidesPerView: 1.2, spaceBetween: 15 },
-          768: { slidesPerView: 3, spaceBetween: 30 },
-          1024: { slidesPerView: 3, spaceBetween: 30 },
+          480: { slidesPerView: 1.2, spaceBetween: 6 },
+          768: { slidesPerView: 3, spaceBetween: 8 },
+          1024: { slidesPerView: 3, spaceBetween: 8 },
         }}
         className="trainee-swiper w-full pb-10"
       >
@@ -103,18 +103,18 @@ function TraineesShowcase() {
           const personSrc = project.author?.avatar_url || personImages[index % personImages.length];
 
           return (
-            <SwiperSlide key={project.id} className="!pt-[100px] sm:!pt-[140px]">
-              <div className="relative w-[220px] sm:w-[260px] lg:w-[300px] h-[420px] sm:h-[460px] lg:h-[500px] mx-auto flex flex-col items-center justify-end pb-10">
-                <div className="absolute -top-24 sm:-top-28 z-0 w-full flex justify-center">
+            <SwiperSlide key={project.id} className="!pt-[140px] sm:!pt-[180px]">
+              <div className="relative w-[280px] sm:w-[330px] lg:w-[380px] h-[480px] sm:h-[530px] lg:h-[585px] mx-auto flex flex-col items-center justify-end pb-10">
+                <div className="absolute -top-32 sm:-top-40 z-0 w-full flex justify-center">
                   <img
                     alt={project.author?.name || "Trainee"}
-                    className="w-[160px] sm:w-[200px] lg:w-[220px] h-auto object-contain pointer-events-none"
+                    className="w-[220px] sm:w-[275px] lg:w-[320px] h-auto object-contain pointer-events-none"
                     src={personSrc}
                     style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))' }}
                   />
                 </div>
 
-                <div className="relative z-10 bg-black text-white rounded-[25px] overflow-hidden shadow-2xl w-full h-[260px] sm:h-[300px] lg:h-[320px] flex flex-col">
+                <div className="relative z-10 bg-black text-white rounded-[25px] overflow-hidden shadow-2xl w-full h-[330px] sm:h-[370px] lg:h-[410px] flex flex-col">
                   <div className="h-1/2 w-full overflow-hidden">
                     {project.cover_image_url ? (
                       <img

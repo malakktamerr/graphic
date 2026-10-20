@@ -97,22 +97,12 @@ const CertificationsSection = () => {
       {/* Title outside the dark container */}
       <div className="text-center mb-0 px-4 py-6">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{
-          backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          color: '#B8860B',
         }}>
           {t('certifications.our')}
         </h2>
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{
-          backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          color: '#B8860B',
         }}>
           {t('certifications.title')}
         </h2>
@@ -130,14 +120,14 @@ const CertificationsSection = () => {
 
     <section className="w-full relative py-6 sm:py-8 lg:py-10 px-6 sm:px-10 lg:px-16 overflow-hidden">
       {/* Background Color */}
-      <div className="absolute inset-0 w-full h-full bg-[#010000] rounded-3xl sm:rounded-[40px] lg:rounded-[50px]"></div>
+      <div className="absolute inset-0 w-full h-full bg-[#010000] rounded-none"></div>
       
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
           src="/11 82013.png"
           alt="Background"
-          className="w-full h-full object-cover rounded-3xl sm:rounded-[40px] lg:rounded-[50px]"
+          className="w-full h-full object-cover rounded-none"
         />
       </div>
       

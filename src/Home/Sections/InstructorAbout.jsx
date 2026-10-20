@@ -15,16 +15,14 @@ const InstructorAbout = ({ hideWho = false }) => {
   const isAr = i18n.language?.startsWith('ar');
 
   return (
-    <section className="w-full py-20 bg-white flex justify-center px-4 sm:px-6 lg:px-16 overflow-hidden">
+    <section className="w-full pt-32 pb-20 bg-white flex justify-center px-4 sm:px-6 lg:px-16 overflow-hidden">
       <div className="text-center flex flex-col items-center gap-4 max-w-full">
 
         {/* Small title */}
         {!hideWho && (
-          <AnimatedWords
-            text={t('instructorAbout.who')}
-            as="p"
-            className="font-lexend text-2xl md:text-[48px] font-bold tracking-wider inline-block text-black"
-          />
+          <p className="font-lexend text-2xl md:text-[48px] font-bold tracking-wider text-black w-full text-center">
+            {t('instructorAbout.who')}
+          </p>
         )}
 
         {/* Main title */}
