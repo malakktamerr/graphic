@@ -204,9 +204,9 @@ const Footer = () => {
           </div>
 
           {/* Contact Details List */}
-          <div className="space-y-3 pt-2">
+          <div className="pt-2">
             {/* Telegram 1 */}
-            <div className="flex items-center gap-4 p-3 bg-[#121215] border border-gray-800/60 rounded-xl">
+            <div className="flex items-center gap-4 py-3 border-b border-gray-800">
               <div className="w-10 h-10 rounded-lg bg-[#1a1a20] flex items-center justify-center shrink-0">
                 <FaTelegramPlane className="text-gray-300 text-lg" />
               </div>
@@ -214,19 +214,17 @@ const Footer = () => {
             </div>
 
             {/* Telegram 2 Link */}
-            {socials.telegram && (
-              <div className="flex items-center gap-4 p-3 bg-[#121215] border border-gray-800/60 rounded-xl">
-                <div className="w-10 h-10 rounded-lg bg-[#1a1a20] flex items-center justify-center shrink-0">
-                  <FaTelegramPlane className="text-gray-300 text-lg" />
-                </div>
-                <a href={socials.telegram} target="_blank" rel="noopener noreferrer" className="text-gray-300 text-sm hover:text-white transition truncate">
-                  {socials.telegram}
-                </a>
+            <div className="flex items-center gap-4 py-3 border-b border-gray-800">
+              <div className="w-10 h-10 rounded-lg bg-[#1a1a20] flex items-center justify-center shrink-0">
+                <FaTelegramPlane className="text-gray-300 text-lg" />
               </div>
-            )}
+              <a href={socials.telegram || "https://t.me/+M1FiM7FVhn0yMzNk"} target="_blank" rel="noopener noreferrer" className="text-gray-300 text-sm hover:text-white transition truncate">
+                {socials.telegram || "https://t.me/+M1FiM7FVhn0yMzNk"}
+              </a>
+            </div>
 
             {/* Address */}
-            <div className="flex items-center gap-4 p-3 bg-[#121215] border border-gray-800/60 rounded-xl">
+            <div className="flex items-center gap-4 py-3 border-b border-gray-800">
               <div className="w-10 h-10 rounded-lg bg-[#1a1a20] flex items-center justify-center shrink-0">
                 <FaMapMarkerAlt className="text-gray-300 text-lg" />
               </div>
@@ -234,7 +232,7 @@ const Footer = () => {
             </div>
 
             {/* Email */}
-            <div className="flex items-center gap-4 p-3 bg-[#121215] border border-gray-800/60 rounded-xl">
+            <div className="flex items-center gap-4 py-3 border-b border-gray-800">
               <div className="w-10 h-10 rounded-lg bg-[#1a1a20] flex items-center justify-center shrink-0">
                 <FaEnvelope className="text-gray-300 text-lg" />
               </div>
@@ -249,7 +247,15 @@ const Footer = () => {
         <div className="space-y-8 lg:pt-4">
           {/* Title & Description */}
           <div>
-            <h2 className="text-xl font-bold text-[#df9b27] mb-2">
+            <h2 className="text-xl font-bold mb-2" style={{
+              backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: 'transparent'
+            }}>
               Abdullah El-Nasr
             </h2>
             <p className="text-gray-400 text-sm leading-relaxed max-w-md">
@@ -271,18 +277,30 @@ const Footer = () => {
 
           {/* Action Buttons */}
           <div className="flex gap-4 pt-4">
-            <Link 
-              to="/signup" 
-              className="px-6 py-2.5 rounded-lg border border-emerald-500/60 text-white font-medium text-sm hover:bg-emerald-500/10 transition"
-            >
-              Create account
-            </Link>
-            <Link 
-              to="/login" 
-              className="px-6 py-2.5 rounded-lg border border-rose-500/60 text-white font-medium text-sm hover:bg-rose-500/10 transition"
-            >
-              Sign in
-            </Link>
+            <style>{`
+              @keyframes authBorder {
+                0%   { background-position: 0%   50%; }
+                50%  { background-position: 100% 50%; }
+                100% { background-position: 0%   50%; }
+              }
+              .footer-auth-btn-wrapper {
+                background: linear-gradient(135deg,#ff0080,#ff8c00,#40e0d0,#0080ff,#8000ff,#00ff80);
+                background-size: 300% 300%;
+                animation: authBorder 3s ease infinite;
+                padding: 2px;
+                border-radius: 8px;
+              }
+            `}</style>
+            <div className="footer-auth-btn-wrapper">
+              <Link to="/signup" className="block bg-black text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-gray-900 transition-colors whitespace-nowrap">
+                Create account
+              </Link>
+            </div>
+            <div className="footer-auth-btn-wrapper">
+              <Link to="/login" className="block bg-black text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-gray-900 transition-colors whitespace-nowrap">
+                Sign in
+              </Link>
+            </div>
           </div>
         </div>
 

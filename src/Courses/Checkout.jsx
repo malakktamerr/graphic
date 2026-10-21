@@ -85,7 +85,7 @@ function Checkout() {
       );
       const json = await res.json();
       if (json?.data?.redirect_url) {
-        toast.success('جاري التحويل لبوابة الدفع...');
+        toast.success(t('redirecting'));
         setTimeout(() => { window.location.href = json.data.redirect_url; }, 800);
       } else {
         const msg = json.message || t('paymentFailed');
@@ -132,44 +132,42 @@ function Checkout() {
           </div>
 
           <h1 className={`text-2xl font-black mb-2 ${isSuccess ? 'text-green-700' : 'text-red-600'}`}>
-            {isSuccess ? 'تم الدفع بنجاح! 🎉' : 'فشلت عملية الدفع'}
+            {isSuccess ? t('paymentSuccess') : t('paymentFailedTitle')}
           </h1>
 
           <p className="text-gray-500 text-sm mb-6">
-            {isSuccess
-              ? 'تم تأكيد اشتراكك. يمكنك الآن الوصول إلى الكورس.'
-              : 'لم تكتمل عملية الدفع. يمكنك المحاولة مرة أخرى.'}
+            {isSuccess ? t('successMessage') : t('failedMessage')}
           </p>
 
           {isSuccess && (
             <div className="bg-gray-50 rounded-2xl p-4 mb-6 text-right space-y-2">
               {orderId && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">رقم الطلب</span>
+                  <span className="text-gray-400">{t('orderNumber')}</span>
                   <span className="font-semibold text-black truncate max-w-[180px]">{orderId}</span>
                 </div>
               )}
               {invoiceId && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">رقم الفاتورة</span>
+                  <span className="text-gray-400">{t('invoiceNumber')}</span>
                   <span className="font-semibold text-black">{invoiceId}</span>
                 </div>
               )}
               {paymentType && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">طريقة الدفع</span>
+                  <span className="text-gray-400">{t('paymentMethodLabel')}</span>
                   <span className="font-semibold text-black capitalize">{paymentType}</span>
                 </div>
               )}
               {tranDate && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">التاريخ</span>
+                  <span className="text-gray-400">{t('date')}</span>
                   <span className="font-semibold text-black">{tranDate}</span>
                 </div>
               )}
               {result && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">الحالة</span>
+                  <span className="text-gray-400">{t('status')}</span>
                   <span className="font-semibold text-green-600">{result}</span>
                 </div>
               )}
@@ -183,21 +181,21 @@ function Checkout() {
                 className="w-full py-3 rounded-full font-bold text-black text-base"
                 style={{ background: 'linear-gradient(to right, #4ade80, #facc15)' }}
               >
-                ابدأ التعلم الآن →
+                {t('startLearning')}
               </button>
             ) : (
               <button
                 onClick={() => navigate(`/checkout/${courseId}`)}
                 className="w-full py-3 rounded-full font-bold text-white text-base bg-black"
               >
-                حاول مرة أخرى
+                {t('tryAgain')}
               </button>
             )}
             <button
               onClick={() => navigate('/')}
               className="w-full py-3 rounded-full font-semibold text-gray-500 text-sm border border-gray-200 hover:border-gray-400 transition-colors"
             >
-              الرئيسية
+              {t('home')}
             </button>
           </div>
         </div>

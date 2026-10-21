@@ -5,7 +5,9 @@
   "emailPlaceholder": "Enter Your Email",
   "getAccess": "Get Early Access",
   "loading": "Loading...",
-  "planName": "Alterity Standard",
+  "studentsAccess": "trainees already have access",
+  "registeredStudents": "Registered Students",
+  "planName": "Standard Plan",
   "billedLifelong": "Billed lifelong",
   "annualBilling": "with annual billing",
   "beforeDiscount": "Before the discount",
@@ -15,12 +17,29 @@
   "reasonsTitle": "Reasons for subscribing",
   "reasons": {
     "r1": "Lifetime active subscription",
-    "r2": "Exporting files in the course",
-    "r3": "Lifelong follow-up",
-    "r4": "Support paid files",
-    "r5": "Lectures for free"
+    "r2": "Exporting training course files",
+    "r3": "Lifelong follow-up after the course",
+    "r4": "Tasks on the group",
+    "r5": "Free lectures",
+    "r6": "Support after the course"
   },
+  "SAR": "SAR",
+  "currency": "SAR",
+  "oneTimePayment": "One-time payment",
+  "lifetimeShort": "Lifetime",
+  "alternativePlan": "Standard Plan",
+  "discount": "20% OFF",
+  "getDiscount": "Get discount",
   "rights": "@Elnasr courses.2026 All rights reserved",
   "refundPolicy": "Refund Policy",
-  "internationalStandard": "Subscribe to International Standard"
+  "internationalStandard": "Subscribe to International Standard",
+  "paymentMethods": {
+    "mastercard": "Mastercard",
+    "visa": "Visa",
+    "paypal": "PayPal",
+    "vodafone": "Vodafone Cash",
+    "etisalat": "Etisalat Cash",
+    "binance": "Binance",
+    "bitcoin": "Bitcoin"
+  }
 }

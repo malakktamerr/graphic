@@ -186,9 +186,9 @@ function ContactSection() {
         {/* Cover Image */}
         <div className="w-full flex justify-center" style={{ marginTop: '50px' }}>
           <img
-            src={isAr ? "/cover-websitebar2.png" : "/cover-websitebar.png"}
+            src={isAr ? "/cover-websitebar2.png" : "/cover-websitebar2.png"}
             alt="Trainees"
-            className="w-[80%] h-auto object-contain"
+            className="w-[90%] h-auto object-contain "
           />
         </div>
       </div>

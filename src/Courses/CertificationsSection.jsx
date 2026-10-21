@@ -630,6 +630,257 @@
 
 // export default CertificationsSection;
 
+// import { useState, useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { useTranslation } from 'react-i18next';
+// import { useLanguage } from '../hooks/useLanguage';
+// import { getCertificates } from '../api/certificates';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Autoplay } from 'swiper/modules';
+// import 'swiper/css';
+
+// const certImages = [
+//   "/Excellence-in-Graphic-Design 6.png",
+//   "/Excellence-in-Graphic-Design 1.png",
+//   "/Excellence-in-Graphic-Design 5.png",
+//   "/Excellence-in-Graphic-Design 3.png",
+//   "/Excellence-in-Graphic-Design 2 (1).png",
+//   "/Excellence-in-Graphic-Design 2 (1).png",
+// ];
+
+// const CertificationsSection = () => {
+//   const navigate = useNavigate();
+//   const { t } = useTranslation('courses');
+//   const { isAr } = useLanguage();
+//   const [certifications, setCertifications] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     getCertificates({ per_page: 6, search: '' })
+//       .then((json) => {
+//         const items = json.data || [];
+//         setCertifications(
+//           items.slice(0, 6).map((item, index) => ({
+//             id: item.id,
+//             name: item.holder?.name || '',
+//             achievement: isAr 
+//               ? (item.title_ar || item.course?.title_ar || item.course?.title || t('certifications.excellence', 'Excellence in Graphic Design'))
+//               : (item.title_en || item.course?.title_en || item.course?.title || t('certifications.excellence', 'Excellence in Graphic Design')),
+//             description: isAr 
+//               ? (item.description_ar || item.description || t('certifications.defaultDesc', 'vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve here.'))
+//               : (item.description_en || item.description || t('certifications.defaultDesc', 'vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve here.')),
+//             image: item.image_url || certImages[index % certImages.length],
+//             certificateNumber: item.certificate_number,
+//           }))
+//         );
+//       })
+//       .catch((err) => console.error('Failed to fetch certificates:', err))
+//       .finally(() => setLoading(false));
+//   }, [isAr, t]);
+
+//   return (
+//     <div className="w-full relative bg-black py-10" style={{ direction: 'ltr' }}>
+      
+//       {/* Medal Badge - Top Center */}
+//       <div className="flex justify-center relative z-40 mb-[-45px]">
+//         <img 
+//           src="/10603705_42828 2.png" 
+//           alt="Medal Icon" 
+//           className="w-24 h-24 sm:w-28 sm:h-28 object-contain drop-shadow-2xl"
+//         />
+//       </div>
+
+//       {/* Main Container - Dark Curved Box */}
+//       <section 
+//         className="w-full max-w-6xl mx-auto relative pt-16 pb-12 px-4 sm:px-8 overflow-hidden rounded-[50px] sm:rounded-[60px] border border-zinc-800 shadow-2xl" 
+//         style={{
+//           background: 'radial-gradient(circle at top, #1a160e 0%, #080808 100%)',
+//         }}
+//       >
+        
+//         {/* Title inside container */}
+//         <div className="text-center mb-10">
+//           <h2 className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 bg-clip-text text-transparent">
+//             {t('certifications.title', 'شهاداتنا')}
+//           </h2>
+//         </div>
+
+//         <div className="relative z-20">
+
+//           {/* Mobile View - Swiper Carousel */}
+//           <div className="block sm:hidden mb-8">
+//             <Swiper
+//               modules={[Autoplay]}
+//               slidesPerView={1}
+//               spaceBetween={16}
+//               loop={true}
+//               autoplay={{ delay: 3000, disableOnInteraction: false }}
+//               centeredSlides={true}
+//               className="w-full"
+//             >
+//               {loading ? null : certifications.map((cert, index) => (
+//                 <SwiperSlide key={index}>
+//                   <div 
+//                     className="bg-white rounded-2xl p-4 border border-zinc-200 shadow-lg flex flex-col justify-between text-left"
+//                     style={{ direction: isAr ? 'rtl' : 'ltr', textAlign: isAr ? 'right' : 'left' }}
+//                   >
+//                     <div>
+//                       <div className="flex justify-between items-center mb-1">
+//                         <h3 className="text-xs font-black text-black uppercase tracking-wider">{t('certifications.label', 'CERTIFICATIONS')}</h3>
+//                         <img src="/10603705_42828 2.png" alt="Badge" className="w-6 h-6 object-contain" />
+//                       </div>
+//                       <h4 className="text-xs font-semibold text-gray-400 uppercase mb-1">{cert.name || 'FATIMA YASSER'}</h4>
+//                       <p className="text-xs font-bold text-black mb-2">{cert.achievement}</p>
+//                       <div className="flex gap-1 mb-3">
+//                         {[...Array(4)].map((_, i) => (
+//                           <span key={i} className="text-amber-400 text-xs">★</span>
+//                         ))}
+//                       </div>
+//                     </div>
+//                     <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mt-auto">
+//                       <img 
+//                         src={cert.image} 
+//                         alt={cert.name} 
+//                         className="w-full h-full object-cover"
+//                         onError={(e) => { e.target.src = certImages[index % certImages.length]; }} 
+//                       />
+//                     </div>
+//                   </div>
+//                 </SwiperSlide>
+//               ))}
+//             </Swiper>
+//           </div>
+
+//           {/* Desktop View - Fixed 3 Columns x 2 Rows Grid (No Scroll) */}
+//           <div
+//             className="hidden sm:grid grid-cols-3 gap-5 mb-10"
+//             style={{ direction: 'ltr' }}
+//           >
+//           {loading ? (
+//             <p className="text-gray-400 col-span-3 text-center py-10">{t('certifications.loading', 'جاري التحميل...')}</p>
+//           ) : (
+//             certifications.map((cert, index) => {
+//               // Checkerboard pattern calculation (Column 2 flips row 1 and 2)
+//               const colIndex = index % 3;
+//               const rowIndex = Math.floor(index / 3);
+//               const isImageOnTop = colIndex === 1 ? rowIndex === 0 : rowIndex === 1;
+
+//               return (
+//                 <div 
+//                   key={index}
+//                   className="bg-white rounded-2xl p-4 border border-zinc-200 shadow-xl flex flex-col justify-between"
+//                   style={{ direction: isAr ? 'rtl' : 'ltr', textAlign: isAr ? 'right' : 'left' }}
+//                 >
+//                   {isImageOnTop ? (
+//                     <>
+//                       {/* Top Image */}
+//                       <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-3">
+//                         <img
+//                           src={cert.image}
+//                           alt={cert.name}
+//                           className="w-full h-full object-cover"
+//                           onError={(e) => {
+//                             e.target.src = certImages[index % certImages.length];
+//                           }}
+//                         />
+//                       </div>
+
+//                       {/* Bottom Info */}
+//                       <div className="flex flex-col justify-between flex-1">
+//                         <div>
+//                           <div className="flex justify-between items-start">
+//                             <div>
+//                               <h3 className="text-sm font-black text-black tracking-tight uppercase">
+//                                 {t('certifications.label', 'CERTIFICATIONS')}
+//                               </h3>
+//                               <h4 className="text-xs font-semibold text-gray-400 uppercase mt-0.5">
+//                                 {cert.name || 'Yasser Gaber'}
+//                               </h4>
+//                             </div>
+//                             <img src="/10603705_42828 2.png" alt="Badge" className="w-7 h-7 object-contain shrink-0" />
+//                           </div>
+//                           <p className="text-xs font-bold text-black mt-2 mb-1">
+//                             {cert.achievement}
+//                           </p>
+//                           <p className="text-[10px] text-gray-500 line-clamp-2 leading-tight">
+//                             {cert.description}
+//                           </p>
+//                         </div>
+//                         <div className="flex gap-0.5 mt-2">
+//                           {[...Array(4)].map((_, i) => (
+//                             <span key={i} className="text-amber-400 text-xs">★</span>
+//                           ))}
+//                         </div>
+//                       </div>
+//                     </>
+//                   ) : (
+//                     <>
+//                       {/* Top Info */}
+//                       <div className="mb-3">
+//                         <div className="flex justify-between items-start">
+//                           <div>
+//                             <h3 className="text-sm font-black text-black tracking-tight uppercase">
+//                               {t('certifications.label', 'CERTIFICATIONS')}
+//                             </h3>
+//                             <h4 className="text-xs font-semibold text-gray-400 uppercase mt-0.5">
+//                               {cert.name || 'FATIMA YASSER'}
+//                             </h4>
+//                           </div>
+//                           <img src="/10603705_42828 2.png" alt="Badge" className="w-7 h-7 object-contain shrink-0" />
+//                         </div>
+//                         <p className="text-xs font-bold text-black mt-2 mb-1">
+//                           {cert.achievement}
+//                         </p>
+//                         <p className="text-[10px] text-gray-500 line-clamp-2 leading-tight">
+//                           {cert.description}
+//                         </p>
+//                         <div className="flex gap-0.5 mt-2">
+//                           {[...Array(4)].map((_, i) => (
+//                             <span key={i} className="text-amber-400 text-xs">★</span>
+//                           ))}
+//                         </div>
+//                       </div>
+
+//                       {/* Bottom Image */}
+//                       <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mt-auto">
+//                         <img
+//                           src={cert.image}
+//                           alt={cert.name}
+//                           className="w-full h-full object-cover"
+//                           onError={(e) => {
+//                             e.target.src = certImages[index % certImages.length];
+//                           }}
+//                         />
+//                       </div>
+//                     </>
+//                   )}
+//                 </div>
+//               );
+//             })
+//           )}
+//           </div>
+
+//           {/* Bottom Button - "عرض جميع الشهادات" */}
+//           <div className="flex justify-center" style={{ direction: isAr ? 'rtl' : 'ltr' }}>
+//             <button
+//               onClick={() => navigate('/certifications')}
+//               className="px-8 py-3 rounded-full font-bold text-sm text-black bg-gradient-to-r from-zinc-300 via-white to-zinc-300 border border-zinc-400 shadow-lg hover:scale-105 transition-transform flex items-center gap-3"
+//             >
+//               <span>{t('certifications.viewAll', 'عرض جميع الشهادات')}</span>
+//               <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">
+//                 {isAr ? '←' : '→'}
+//               </span>
+//             </button>
+//           </div>
+
+//         </div>
+//       </section>
+//     </div>
+//   );
+// };
+
+// export default CertificationsSection;
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -667,8 +918,8 @@ const CertificationsSection = () => {
               ? (item.title_ar || item.course?.title_ar || item.course?.title || t('certifications.excellence', 'Excellence in Graphic Design'))
               : (item.title_en || item.course?.title_en || item.course?.title || t('certifications.excellence', 'Excellence in Graphic Design')),
             description: isAr 
-              ? (item.description_ar || item.description || t('certifications.defaultDesc', 'vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve here.'))
-              : (item.description_en || item.description || t('certifications.defaultDesc', 'vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve here.')),
+              ? (item.description_ar || item.description || t('certifications.defaultDesc', 'vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve here. It is a wonderful thing when you work in a healthy environment that always strives for success.'))
+              : (item.description_en || item.description || t('certifications.defaultDesc', 'vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve here. It is a wonderful thing when you work in a healthy environment that always strives for success.')),
             image: item.image_url || certImages[index % certImages.length],
             certificateNumber: item.certificate_number,
           }))
@@ -751,30 +1002,29 @@ const CertificationsSection = () => {
             </Swiper>
           </div>
 
-          {/* Desktop View - Fixed 3 Columns x 2 Rows Grid (No Scroll) */}
+          {/* Desktop View - Exact 3 Columns Grid (Card vs Inverted Card) */}
           <div
-            className="hidden sm:grid grid-cols-3 gap-5 mb-10"
+            className="hidden sm:grid grid-cols-3 gap-6 mb-10"
             style={{ direction: 'ltr' }}
           >
           {loading ? (
             <p className="text-gray-400 col-span-3 text-center py-10">{t('certifications.loading', 'جاري التحميل...')}</p>
           ) : (
             certifications.map((cert, index) => {
-              // Checkerboard pattern calculation (Column 2 flips row 1 and 2)
+              // العامود الأوسط (index 1 و index 4) تكون الصورة في الأعلى والجزء الأبيض في الأسفل
               const colIndex = index % 3;
-              const rowIndex = Math.floor(index / 3);
-              const isImageOnTop = colIndex === 1 ? rowIndex === 0 : rowIndex === 1;
+              const isImageOnTop = colIndex === 1; 
 
               return (
                 <div 
                   key={index}
-                  className="bg-white rounded-2xl p-4 border border-zinc-200 shadow-xl flex flex-col justify-between"
+                  className="bg-white rounded-3xl p-3 sm:p-4 border border-zinc-200 shadow-2xl flex flex-col justify-between h-full"
                   style={{ direction: isAr ? 'rtl' : 'ltr', textAlign: isAr ? 'right' : 'left' }}
                 >
                   {isImageOnTop ? (
                     <>
-                      {/* Top Image */}
-                      <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-3">
+                      {/* Top Image (العمود الثاني: الصورة أولاً) */}
+                      <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden mb-3">
                         <img
                           src={cert.image}
                           alt={cert.name}
@@ -786,27 +1036,27 @@ const CertificationsSection = () => {
                       </div>
 
                       {/* Bottom Info */}
-                      <div className="flex flex-col justify-between flex-1">
+                      <div className="flex flex-col justify-between flex-1 px-1 pb-1">
                         <div>
                           <div className="flex justify-between items-start">
                             <div>
-                              <h3 className="text-sm font-black text-black tracking-tight uppercase">
+                              <h3 className="text-sm sm:text-base font-black text-black tracking-tight uppercase">
                                 {t('certifications.label', 'CERTIFICATIONS')}
                               </h3>
                               <h4 className="text-xs font-semibold text-gray-400 uppercase mt-0.5">
                                 {cert.name || 'Yasser Gaber'}
                               </h4>
                             </div>
-                            <img src="/10603705_42828 2.png" alt="Badge" className="w-7 h-7 object-contain shrink-0" />
+                            <img src="/10603705_42828 2.png" alt="Badge" className="w-8 h-8 object-contain shrink-0" />
                           </div>
                           <p className="text-xs font-bold text-black mt-2 mb-1">
                             {cert.achievement}
                           </p>
-                          <p className="text-[10px] text-gray-500 line-clamp-2 leading-tight">
+                          <p className="text-[10px] text-gray-500 line-clamp-3 leading-tight">
                             {cert.description}
                           </p>
                         </div>
-                        <div className="flex gap-0.5 mt-2">
+                        <div className="flex gap-0.5 mt-3">
                           {[...Array(4)].map((_, i) => (
                             <span key={i} className="text-amber-400 text-xs">★</span>
                           ))}
@@ -815,26 +1065,26 @@ const CertificationsSection = () => {
                     </>
                   ) : (
                     <>
-                      {/* Top Info */}
-                      <div className="mb-3">
+                      {/* Top Info (الأعمدة الأول والثالث: الكلام الأبيض أولاً) */}
+                      <div className="mb-3 px-1 pt-1">
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="text-sm font-black text-black tracking-tight uppercase">
+                            <h3 className="text-sm sm:text-base font-black text-black tracking-tight uppercase">
                               {t('certifications.label', 'CERTIFICATIONS')}
                             </h3>
                             <h4 className="text-xs font-semibold text-gray-400 uppercase mt-0.5">
                               {cert.name || 'FATIMA YASSER'}
                             </h4>
                           </div>
-                          <img src="/10603705_42828 2.png" alt="Badge" className="w-7 h-7 object-contain shrink-0" />
+                          <img src="/10603705_42828 2.png" alt="Badge" className="w-8 h-8 object-contain shrink-0" />
                         </div>
                         <p className="text-xs font-bold text-black mt-2 mb-1">
                           {cert.achievement}
                         </p>
-                        <p className="text-[10px] text-gray-500 line-clamp-2 leading-tight">
+                        <p className="text-[10px] text-gray-500 line-clamp-3 leading-tight">
                           {cert.description}
                         </p>
-                        <div className="flex gap-0.5 mt-2">
+                        <div className="flex gap-0.5 mt-3">
                           {[...Array(4)].map((_, i) => (
                             <span key={i} className="text-amber-400 text-xs">★</span>
                           ))}
@@ -842,7 +1092,7 @@ const CertificationsSection = () => {
                       </div>
 
                       {/* Bottom Image */}
-                      <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mt-auto">
+                      <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden mt-auto">
                         <img
                           src={cert.image}
                           alt={cert.name}

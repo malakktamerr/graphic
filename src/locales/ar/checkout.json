@@ -20,5 +20,18 @@
   "goToCourse": "اذهب إلى الكورس",
   "failedLoad": "فشل تحميل صفحة الدفع.",
   "paymentFailed": "فشلت عملية الدفع.",
-  "networkError": "خطأ في الشبكة."
+  "networkError": "خطأ في الشبكة.",
+  "redirecting": "جاري التحويل لبوابة الدفع...",
+  "paymentSuccess": "تم الدفع بنجاح! 🎉",
+  "paymentFailedTitle": "فشلت عملية الدفع",
+  "successMessage": "تم تأكيد اشتراكك. يمكنك الآن الوصول إلى الكورس.",
+  "failedMessage": "لم تكتمل عملية الدفع. يمكنك المحاولة مرة أخرى.",
+  "orderNumber": "رقم الطلب",
+  "invoiceNumber": "رقم الفاتورة",
+  "paymentMethodLabel": "طريقة الدفع",
+  "date": "التاريخ",
+  "status": "الحالة",
+  "startLearning": "ابدأ التعلم الآن →",
+  "tryAgain": "حاول مرة أخرى",
+  "home": "الرئيسية"
 }

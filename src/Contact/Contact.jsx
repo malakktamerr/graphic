@@ -166,18 +166,6 @@ const ContactCardsCarousel = ({ items }) => {
   );
 };
 
-const contactCardsEn = [
-  { icon: '✉', title: 'Email', value: 'abdullahelnasrabdullahelnasr@gmail.com', desc: 'Submit your request' },
-  { icon: '✈', title: 'Telegram', value: '@alnaser224', desc: 'Follow student results and\nbehind-the-scenes work' },
-  { icon: 'B', title: 'WhatsApp Business', value: 'https://wa.me/message/YY7B6636FEATM1', desc: 'Speak directly with the\ntechnical support team' },
-];
-
-const contactCardsAr = [
-  { icon: '✉', title: 'البريد الإلكتروني', value: 'abdullahelnasrabdullahelnasr@gmail.com', desc: 'أرسل طلبك' },
-  { icon: '✈', title: 'تيليجرام', value: '@alnaser224', desc: 'تابع نتائج الطلاب\nوكواليس العمل' },
-  { icon: 'B', title: 'واتساب للأعمال', value: 'https://wa.me/message/YY7B6636FEATM1', desc: 'تحدث مباشرة مع\nفريق الدعم الفني' },
-];
-
 function Contact() {
   const { t } = useTranslation('contact');
   const { isAr } = useLanguage();
@@ -193,7 +181,6 @@ function Contact() {
       .then(json => {
         if (json.data) {
           setContactInfo(json.data);
-          // Build contact cards from API data
           const cards = [
             { 
               icon: '✉', 
@@ -251,7 +238,6 @@ function Contact() {
             alt="Courses Cover"
             style={{ transform: isAr ? 'scaleX(-1)' : 'none' }}
           />
-          {/* Text overlay on hero image */}
           <div className="absolute inset-0 flex items-center px-10 md:px-20">
             <div className="flex flex-col gap-2">
               <div style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: 'clamp(48px, 9vw, 128px)', lineHeight: 1 }}>
@@ -276,9 +262,9 @@ function Contact() {
         </div>
       </section>
 
-      {/* Secure Your Spot Section */}
-      <section className="w-full bg-white py-12 px-6 md:px-12 lg:px-20">
-        <div className="max-w-[1200px] mx-auto">
+      {/* Contact Form Section */}
+      <section className="w-full py-8 md:py-12 bg-white">
+        <div className="w-full max-w-[1031px] mx-auto px-6 sm:px-8 lg:px-12">
           <style>{`
             @keyframes secureSpotBorder {
               0% { background-position: 0% 50%; }
@@ -292,8 +278,45 @@ function Contact() {
               padding: 1px;
               border-radius: 9999px;
             }
+            .feedback-border {
+              background: linear-gradient(90deg, #FF0AD2 0%, #FF0AD2 50%, #0AFFFF 75%, #0AFF26 70%, #0AD20A 70%, #FF0004 100%);
+              padding: 2px;
+              border-radius: 16px;
+            }
+            .form-input {
+              width: 100%;
+              padding: 12px 16px;
+              border: 1.5px solid #d1d5db;
+              border-radius: 10px;
+              background: #fff;
+              font-family: Lexend;
+              font-size: 15px;
+              outline: none;
+              transition: border-color 0.2s;
+            }
+            .form-input:focus {
+              border-color: #FFC800;
+              box-shadow: 0 0 0 3px rgba(255,200,0,0.15);
+            }
+            .form-textarea {
+              width: 100%;
+              padding: 12px 16px;
+              border: 1.5px solid #d1d5db;
+              border-radius: 10px;
+              background: #fff;
+              font-family: Lexend;
+              font-size: 15px;
+              outline: none;
+              resize: none;
+              height: 180px;
+              transition: border-color 0.2s;
+            }
+            .form-textarea:focus {
+              border-color: #FFC800;
+              box-shadow: 0 0 0 3px rgba(255,200,0,0.15);
+            }
           `}</style>
-          <div className="secure-spot-border">
+          <div className="secure-spot-border mb-8">
             <div className="rounded-full bg-white" style={{ padding: '6px' }}>
               <div className="rounded-full" style={{
                 backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
@@ -306,53 +329,29 @@ function Contact() {
                     fontWeight: 600,
                     fontSize: 'clamp(11px, 3vw, 45px)',
                     color: 'white',
-                  }}>{t('secureSpot')}</p>
+                  }}>{t('form.title')}</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="w-full py-16 md:py-20 bg-white">
-        <div className="w-full max-w-[1031px] mx-auto px-6 sm:px-8 lg:px-12" style={{ minHeight: '1286px' }}>
-          <h2 className="text-center font-bold mb-8" style={{
-            fontFamily: 'Lexend',
-            fontSize: 'clamp(24px, 4vw, 46px)',
-            backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            color: 'transparent',
-            WebkitTextFillColor: 'transparent',
-          }}>{t('form.title')}</h2>
-          <style>{`
-            .feedback-border {
-              background: linear-gradient(90deg, #FF0AD2 0%, #FF0AD2 50%, #0AFFFF 75%, #0AFF26 70%, #0AD20A 70%, #FF0004 100%);
-              padding: 2px;
-              border-radius: 16px;
-            }
-          `}</style>
           <div className="feedback-border">
             <div className="bg-white rounded-[14px] p-8">
               <form className="space-y-5">
                 <div>
                   <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.name')} <span className="text-yellow-500">*</span></label>
-                  <input type="text" className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none" style={{ fontFamily: 'Lexend' }} />
+                  <input type="text" className="form-input" />
                 </div>
                 <div>
                   <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.phone')} <span className="text-yellow-500">*</span></label>
-                  <input type="tel" className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none" style={{ fontFamily: 'Lexend' }} />
+                  <input type="tel" className="form-input" />
                 </div>
                 <div>
                   <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.email')} <span className="text-yellow-500">*</span></label>
-                  <input type="email" placeholder={t('form.emailPlaceholder')} className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none" style={{ fontFamily: 'Lexend' }} />
+                  <input type="email" placeholder={t('form.emailPlaceholder')} className="form-input" />
                 </div>
                 <div>
                   <label className="block font-semibold mb-2" style={{ fontFamily: 'Lexend' }}>{t('form.faqLabel')} <span className="text-yellow-500">*</span></label>
-                  <div className="bg-gray-100 rounded p-4 space-y-3">
+                  <div className="border border-gray-200 rounded-xl p-4 space-y-3 bg-gray-50">
                     <div>
                       <p className="font-semibold mb-2" style={{ fontFamily: 'Lexend', fontSize: 'clamp(14px, 1.5vw, 20px)', backgroundImage: 'linear-gradient(to right, #FFC800, #534100)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{t('form.levelQ')}</p>
                       <div className="flex flex-col gap-1">
@@ -379,7 +378,7 @@ function Contact() {
                 </div>
                 <div>
                   <label className="block font-semibold mb-1" style={{ fontFamily: 'Lexend' }}>{t('form.message')} <span className="text-yellow-500">*</span></label>
-                  <textarea className="w-full px-4 py-3 rounded bg-gray-100 focus:outline-none resize-none h-[180px]" style={{ fontFamily: 'Lexend' }}></textarea>
+                  <textarea className="form-textarea"></textarea>
                 </div>
                 <button type="submit" className="border border-black px-8 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition-colors" style={{ fontFamily: 'Lexend' }}>
                   {t('form.sendBtn')}
@@ -409,10 +408,7 @@ function Contact() {
               <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
             ))}
           </h2>
-          {/* Mobile: auto-scroll carousel */}
           <ConsultationCarousel items={consultationItems} />
-
-          {/* Desktop: original grid */}
           <div className="hidden md:grid grid-cols-3 gap-6 justify-items-center">
             {consultationItems.map((item, i) => (
               <div key={i} className="flex flex-col items-center gap-4">
@@ -440,10 +436,87 @@ function Contact() {
       </section>
 
       {/* Stats Section */}
-      <section className="w-full py-20 bg-white">
+     
+
+
+
+
+
+
+
+      {/* FAQ Section */}
+  <section className="w-full relative bg-white pt-8 lg:pt-32">
+        <img
+          src="/Subtract.png"
+          alt="Background"
+          className="absolute -top-[100px] w-[280%] h-[180vh] object-contain opacity-50 pointer-events-none"
+          style={{
+            right: isAr ? 'auto' : '-500px',
+            left: isAr ? '-500px' : 'auto',
+            transform: isAr ? 'scaleX(-1)' : 'none',
+            zIndex: 1
+          }}
+        />
+        <div className="text-center px-4 py-8 relative z-10">
+          <h2 className="font-bold" style={{
+            fontFamily: 'Lexend',
+            fontSize: 'clamp(20px, 5vw, 64px)',
+            lineHeight: '1.2',
+            backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'top',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+          }}>{t('faq.title')}</h2>
+        </div>
+        <div className="bg-black py-16 lg:py-24 relative overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+          {/* خلفية صورة q1 للأسئلة */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/q1" 
+              alt="FAQ Background" 
+              className="w-full h-full object-cover opacity-30"
+            />
+          </div>
+
+          <div className="max-w-4xl mx-auto px-4 lg:px-8 relative z-10">
+            <div className="flex flex-col gap-8">
+              <div className="w-full space-y-6">
+                {faqs.length === 0 ? (
+                  <p className="text-gray-400">No questions available.</p>
+                ) : faqs.map((faq) => (
+                  <div key={faq.id} className="pb-6 bg-black/40 backdrop-blur-sm p-6 rounded-2xl">
+                    <div
+                      className="flex items-center justify-between cursor-pointer mb-4"
+                      onClick={() => toggleQuestion(faq.id)}
+                    >
+                      <h4 className="text-lg font-medium text-white leading-relaxed flex-1">{faq.question}</h4>
+                      <span className="text-2xl text-yellow-500 mr-4 flex-shrink-0">
+                        {openQuestion === faq.id ? '−' : '+'}
+                      </span>
+                    </div>
+                    <div className="w-full mb-4">
+                      <div className="w-full h-1 bg-orange-400"></div>
+                      <div className="w-full h-0.5 bg-orange-300 opacity-60 mt-1"></div>
+                    </div>
+                    {openQuestion === faq.id && (
+                      <div className="mb-4">
+                        <div className="text-green-400 font-semibold mb-3 text-lg">{t('faq.answer')}</div>
+                        <p className="text-gray-300 leading-relaxed text-sm">{faq.answer}</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ <section className="w-full py-20 bg-white">
         <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-16">
           <div className="flex flex-col items-center gap-8">
-            {/* First row: 1,200 and 500+ */}
             <div className="flex flex-wrap justify-center gap-12 lg:gap-20" style={{ direction: isAr ? 'rtl' : 'ltr' }}>
               {(isAr ? [
                 { number: t('stats.s2Number'), desc: t('stats.s2Desc') },
@@ -473,7 +546,6 @@ function Contact() {
                 </div>
               ))}
             </div>
-            {/* Second row: 24 centered */}
             <div className="flex flex-col items-center gap-1">
               <span style={{ visibility: 'hidden', fontSize: 'clamp(60px, 10vw, 160px)', fontWeight: 500, lineHeight: 1, display: 'block' }}>{t('stats.s3Number')}</span>
               <CountUp value={t('stats.s3Number')} style={{
@@ -496,135 +568,17 @@ function Contact() {
           </div>
         </div>
       </section>
-
-      {/* FAQ Section */}
-      <section className="w-full relative bg-white pt-8 lg:pt-32">
-        <img
-          src="/Subtract.png"
-          alt="Background"
-          className="absolute -top-[100px] w-[280%] h-[180vh] object-contain opacity-50 pointer-events-none"
-          style={{
-            right: isAr ? 'auto' : '-500px',
-            left: isAr ? '-500px' : 'auto',
-            transform: isAr ? 'scaleX(-1)' : 'none',
-            zIndex: 1
-          }}
-        />
-        <div className="text-center px-4 py-8 relative z-10">
-          <h2 className="font-bold" style={{
-            fontFamily: 'Lexend',
-            fontSize: 'clamp(20px, 5vw, 64px)',
-            lineHeight: '1.2',
-            backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'top',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            color: 'transparent',
-            WebkitTextFillColor: 'transparent',
-          }}>{t('faq.title')}</h2>
-        </div>
-        <div className="bg-black py-12 lg:py-16 relative" dir={isAr ? 'rtl' : 'ltr'}>
-          <div className="max-w-7xl mx-auto px-4 lg:px-8 relative">
-            <div className="flex flex-col lg:flex-row items-stretch gap-8 min-h-[600px]">
-              <div className="w-full lg:w-1/2 space-y-6 z-10 order-2 lg:order-1">
-                {faqs.length === 0 ? (
-                  <p className="text-gray-400">No questions available.</p>
-                ) : faqs.map((faq) => (
-                  <div key={faq.id} className="pb-6">
-                    <div
-                      className="flex items-center justify-between cursor-pointer mb-4"
-                      onClick={() => toggleQuestion(faq.id)}
-                    >
-                      <h4 className="text-lg font-medium text-white leading-relaxed flex-1">{faq.question}</h4>
-                      <span className="text-2xl text-yellow-500 mr-4 flex-shrink-0">
-                        {openQuestion === faq.id ? '−' : '+'}
-                      </span>
-                    </div>
-                    <div className="w-full mb-4">
-                      <div className="w-full h-1 bg-orange-400"></div>
-                      <div className="w-full h-0.5 bg-orange-300 opacity-60 mt-1"></div>
-                    </div>
-                    {openQuestion === faq.id && (
-                      <div className="mb-4">
-                        <div className="text-green-400 font-semibold mb-3 text-lg">{t('faq.answer')}</div>
-                        <p className="text-gray-300 leading-relaxed text-sm">{faq.answer}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="hidden lg:flex w-full lg:w-1/2 flex-col lg:flex-row items-center justify-center gap-6 order-1 lg:order-2">
-                <img
-                  src="/2 post 1 (1).png"
-                  alt="Abdullah Al-Nasr"
-                  className="w-full max-w-[900px]"
-                  style={{height: 'auto'}}
-                />
-                <img
-                  src="/Mask group (7).png"
-                  alt=""
-                  className="w-full max-w-[250px]"
-                  style={{height: 'auto', transform: isAr ? 'scaleX(-1)' : 'none', marginTop: '-30px'}}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Social Contact Section */}
       <section className="w-full py-12 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
-          {/* 3 Cards - Mobile: horizontal scroll, Desktop: grid */}
-          {/* Mobile: auto-scroll */}
-          {contactCards.length > 0 && <ContactCardsCarousel items={contactCards} />}
-
-          {/* Desktop: original grid */}
-          {contactCards.length > 0 && (
-            <div className="hidden md:grid grid-cols-3 gap-6 mb-6">
-              {contactCards.map((item, i) => (
-              <div key={i} style={{ border: '2px solid #D8A10F', borderRadius: '16px', overflow: 'hidden', background: '#fff' }}>
-                <div style={{ background: '#111', padding: '32px 24px', borderRadius: '16px 16px 24px 24px', boxShadow: '0 8px 16px 2px rgba(0,0,0,0.15)', position: 'relative', zIndex: 2, marginBottom: '-20px' }}>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span style={{ color: '#fff', fontSize: '20px' }}>{item.icon}</span>
-                    <span style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: '20px', backgroundImage: 'linear-gradient(to right, #D8A10F, #EEC62D, #D3990C)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{item.title}</span>
-                  </div>
-                  <p style={{ fontFamily: 'Lexend', fontSize: '14px', color: '#fff', wordBreak: 'break-all' }}>{item.value}</p>
-                </div>
-                <div style={{ background: '#fff', padding: '36px 24px 14px 24px' }}>
-                  <p style={{ fontFamily: 'Lexend', fontSize: '18px', fontWeight: 700, color: '#111', whiteSpace: 'pre-line' }}>{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          )}
-
-          {/* Share Section */}
-          <div style={{ border: '2px solid #F9BA01', borderRadius: '16px', background: '#111', padding: '24px 32px' }}>
-            <p style={{ fontFamily: 'Lexend', fontSize: '14px', color: '#fff', marginBottom: '8px' }}>{t('social.shareTitle')}</p>
-            <div style={{ height: '1px', background: '#333', marginBottom: '20px', width: '200px' }} />
-            <div className="flex items-center justify-center gap-6">
-              {contactInfo && [
-                { label: 'Facebook', url: contactInfo.facebook_url, path: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z' },
-                { label: 'Instagram', url: contactInfo.instagram_url, path: 'M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 6.5h11a1 1 0 011 1v11a1 1 0 01-1 1h-11a1 1 0 01-1-1v-11a1 1 0 011-1z' },
-                { label: 'X', url: contactInfo.twitter_url, path: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z' },
-                { label: 'LinkedIn', url: contactInfo.linkedin_url, path: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z' },
-                { label: 'TikTok', url: contactInfo.tiktok_url, path: 'M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z' },
-              ].filter(s => s.url).map((s, i) => (
-                <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ width: '44px', height: '44px', borderRadius: '50%', border: '2px solid #fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={s.path} />
-                  </svg>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* El-sora Mask group.png fe el-nos - akbar, awdah, we marfo'a le-fok */}
+<div className="w-full -mt-6 lg:-mt-10 mb-6 flex justify-center items-center px-2 z-20 relative">
+  <img 
+    src="/Mask group.png" 
+    alt="Banner Decoration" 
+    className="w-full max-w-6xl h-auto min-h-[200px] md:min-h-[300px] max-h-[500px] object-contain mx-auto drop-shadow-xl rounded-2xl sm:rounded-3xl overflow-hidden"
+  />
+</div>
       </section>
-
-      {/* Contact Info Section */}
-      
     </div>
   );
 }

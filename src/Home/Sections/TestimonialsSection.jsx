@@ -155,12 +155,9 @@ const TestimonialsSection = () => {
           {/* Desktop: 6 cards max, auto-rotating */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {desktopVisible.map((testimonial, index) => {
-              const isBlackCard = index % 3 === 0 || index % 3 === 2;
-              const bgGradient = isBlackCard
-                ? 'linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 20%, #2d2d2d 60%, #1a1a1a 100%)'
-                : 'linear-gradient(45deg, #F0F0F0 0%, #FFFFFF 20%, #FFFFFF 60%, #F0F0F0 100%)';
-              const textColor = isBlackCard ? 'text-white' : 'text-black';
-              const quoteColor = isBlackCard ? 'text-gray-300' : 'text-gray-700';
+              const bgGradient = 'linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 20%, #2d2d2d 60%, #1a1a1a 100%)';
+              const textColor = 'text-white';
+              const quoteColor = 'text-gray-300';
               return <TestimonialCard key={`${desktopStart}-${index}`} testimonial={testimonial} bgGradient={bgGradient} textColor={textColor} quoteColor={quoteColor} />;
             })}
           </div>
@@ -169,12 +166,9 @@ const TestimonialsSection = () => {
           <div ref={scrollRef} className="flex md:hidden overflow-x-auto gap-5 pb-4 snap-x snap-mandatory scrollbar-hide">
             <style>{`.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}`}</style>
             {testimonials.map((testimonial, index) => {
-              const isBlackCard = index % 3 === 0 || index % 3 === 2;
-              const bgGradient = isBlackCard
-                ? 'linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 20%, #2d2d2d 60%, #1a1a1a 100%)'
-                : 'linear-gradient(45deg, #F0F0F0 0%, #FFFFFF 20%, #FFFFFF 60%, #F0F0F0 100%)';
-              const textColor = isBlackCard ? 'text-white' : 'text-black';
-              const quoteColor = isBlackCard ? 'text-gray-300' : 'text-gray-700';
+              const bgGradient = 'linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 20%, #2d2d2d 60%, #1a1a1a 100%)';
+              const textColor = 'text-white';
+              const quoteColor = 'text-gray-300';
               return (
                 <div key={index} className="min-w-[85vw] flex-shrink-0 snap-center">
                   <TestimonialCard testimonial={testimonial} bgGradient={bgGradient} textColor={textColor} quoteColor={quoteColor} />

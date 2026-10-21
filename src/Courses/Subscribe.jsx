@@ -911,8 +911,8 @@ function Subscribe() {
                   <span className="font-black text-6xl sm:text-7xl bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">1000</span>
                   <span className="text-white text-2xl font-bold">{t('SAR', 'ريال')}</span>
                 </div>
-                <p className="text-xs text-emerald-400 font-semibold mt-1">مدي الحياة</p>
-                <p className="text-xs text-gray-400 mt-0.5">{t('internationalStandard', 'الاشتراك في المعيار الدولي')}</p>
+                <p className="text-xs text-emerald-400 font-semibold mt-1">{t('lifetimeShort')}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{t('internationalStandard')}</p>
               </div>
 
               {/* Subscribe Now button */}
@@ -938,8 +938,8 @@ function Subscribe() {
                 <div className="flex items-center justify-between p-4">
                   
                    <div className="text-left">
-                    <p className="font-extrabold text-black text-lg">معيار البديل</p>
-                    <p className="text-gray-500 text-xs">مدي الحياة</p>
+                    <p className="font-extrabold text-black text-lg">{t('alternativePlan')}</p>
+                    <p className="text-gray-500 text-xs">{t('lifetimeShort')}</p>
                   </div>
                   <div className="flex items-baseline gap-1.5">
                     <span className="font-black text-black text-2xl">1000</span>
@@ -948,8 +948,8 @@ function Subscribe() {
                 </div>
 
                 <div className="flex items-center justify-center bg-zinc-300 px-4 py-3 border-t border-zinc-300 gap-3">
-                  <span className="text-xs font-bold text-black">أحصل علي الخصم</span>
-                  <span className="text-xs font-bold text-black bg-zinc-400/60 px-2.5 py-0.5 rounded">خصم 20%</span>
+                  <span className="text-xs font-bold text-black">{t('getDiscount')}</span>
+                  <span className="text-xs font-bold text-black bg-zinc-400/60 px-2.5 py-0.5 rounded">{t('discount')}</span>
                   <div className="w-10 h-6 bg-black rounded-full relative flex items-center px-1">
                     <div className="w-4 h-4 bg-white rounded-full"></div>
                   </div>
@@ -959,7 +959,7 @@ function Subscribe() {
               {/* Before discount */}
               <div className="border-t border-zinc-900 pt-4 mb-4 flex justify-center items-center">
                 <div className="flex justify-center items-center text-sm">
-                  <span className="font-bold text-white text-base">قبل الخصم</span>
+                  <span className="font-bold text-white text-base">{t('beforeDiscount')}</span>
                   <span className="font-bold text-lg text-amber-400">1500 <span className="text-xs">{t('SAR', 'ريال')}</span></span>
                 </div>
               </div>
@@ -967,8 +967,8 @@ function Subscribe() {
               {/* Grand total */}
               <div className="border-t border-zinc-900 pt-4 mb-6">
                 <div className="flex justify-between items-center">
-                  <span className="font-bold text-white text-base">المجموع الإجمالي</span>
-                  <span className="font-extrabold text-xl text-amber-400">1000 <span className="text-xs">{t('SAR', 'ريال')}</span></span>
+                  <span className="font-bold text-white text-base">{t('grandTotal')}</span>
+                  <span className="font-extrabold text-xl text-amber-400">1000 <span className="text-xs">{t('SAR')}</span></span>
                 </div>
               </div>
 
@@ -992,24 +992,17 @@ function Subscribe() {
 
               {/* Reasons */}
               <div className="text-right">
-                <p className="text-white font-bold text-base mb-4">دواعم الأشتراك</p>
+                <p className="text-white font-bold text-base mb-4">{t('reasonsTitle')}</p>
                 <div className="border border-zinc-600 rounded-3xl p-6 bg-black shadow-lg">
                   <ul className="space-y-4">
-                    {[
-                      'اشتراك مدي الحياة',
-                      'تصدير الملفات في الدورة التدريبية',
-                      'متابعة مدي الحياة بعد الدورة',
-                      'عمل تاسكات علي الجروب',
-                      'محاضرات مجانا',
-                      'دعم بعد الكورس'
-                    ].map((reason, i) => (
+                    {['r1','r2','r3','r4','r5','r6'].map((key, i) => (
                       <li key={i} className="flex items-center justify-between text-white text-sm">
                         <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                           <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
                           </svg>
                         </span>
-                        <span className="font-medium mr-3 flex-1 text-right">{reason}</span>
+                        <span className="font-medium mr-3 flex-1 text-right">{t(`reasons.${key}`)}</span>
                       </li>
                     ))}
                   </ul>

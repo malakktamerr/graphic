@@ -20,5 +20,18 @@
   "goToCourse": "Go to Course",
   "failedLoad": "Failed to load checkout.",
   "paymentFailed": "Payment failed.",
-  "networkError": "Network error."
+  "networkError": "Network error.",
+  "redirecting": "Redirecting to payment gateway...",
+  "paymentSuccess": "Payment successful! 🎉",
+  "paymentFailedTitle": "Payment failed",
+  "successMessage": "Your subscription has been confirmed. You can now access the course.",
+  "failedMessage": "Payment was not completed. You can try again.",
+  "orderNumber": "Order number",
+  "invoiceNumber": "Invoice number",
+  "paymentMethodLabel": "Payment method",
+  "date": "Date",
+  "status": "Status",
+  "startLearning": "Start Learning Now →",
+  "tryAgain": "Try Again",
+  "home": "Home"
 }
