@@ -116,7 +116,7 @@ const TestimonialsSection = () => {
             WebkitTextFillColor: 'transparent',
             color: 'transparent'
           }}>
-            أداء المتدربين
+            {t('trainees.sectionTitle', 'أداء المتدربين')}
           </h2>
           <div className="max-w-4xl mx-auto" style={{ fontFamily: 'Lexend', fontSize: 'clamp(14px, 2.5vw, 32px)', fontWeight: 600, lineHeight: 1.4 }}>
             {isAr ? (

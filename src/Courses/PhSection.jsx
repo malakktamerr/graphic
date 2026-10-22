@@ -10,7 +10,7 @@ function PhSection() {
   const [displayedText, setDisplayedText] = useState('');
   const sectionRef = useRef(null);
 
-  const fullText = t('ph.desc');
+  const fullText = t('ph.desc') || '';
   const speed = 30;
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function PhSection() {
   }, []);
 
   useEffect(() => {
-    if (!started) return;
+    if (!started || !fullText) return;
     let i = 0;
     const interval = setInterval(() => {
       i++;
@@ -53,12 +53,12 @@ function PhSection() {
   };
   
   return (
-    <section ref={sectionRef} className="w-full bg-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="w-full bg-white py-4 sm:py-8 lg:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Video Section - PromoVideoSection style */}
+        {/* Video Section */}
         <div className="relative w-full mb-8 sm:mb-12 lg:mb-16">
           <style>{`@keyframes ping-out{0%,100%{transform:scale(1.25);opacity:0.5}50%{transform:scale(1.5);opacity:0}}.animate-ping-out{animation:ping-out 1.5s ease-in-out infinite}`}</style>
-          <div className="relative group w-full max-w-[80%] mx-auto">
+          <div className="relative group w-full max-w-[95%] sm:max-w-[85%] lg:max-w-[80%] mx-auto">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-red-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative bg-black rounded-2xl overflow-hidden aspect-video flex items-center justify-center border border-gray-800">
               {videoUrl && (
@@ -124,41 +124,36 @@ function PhSection() {
           </div>
         )}
         
-        {/* النص الجديد */}
-        <div className="text-center mt-8 sm:mt-12 lg:mt-16 max-w-5xl mx-auto overflow-visible">
-          
-        {/* Text Box with Animated Border */}
-        <div className="relative w-full max-w-[1273px] mx-auto mb-8 sm:mb-12 lg:mb-16 group" style={{ minHeight: 'auto' }}>
-          {/* Static Gradient Border */}
-          <div className="absolute inset-0 rounded-[50px] pointer-events-none">
-            <div className="absolute inset-0 rounded-[50px] p-[3px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
-              <div className="w-full h-full rounded-[50px] bg-white"></div>
+        {/* Animated Text Box */}
+        <div className="text-center mt-6 sm:mt-8 lg:mt-12 max-w-5xl mx-auto overflow-visible">
+          <div className="relative w-full max-w-[1273px] mx-auto mb-6 sm:mb-8 lg:mb-12 group" style={{ minHeight: 'auto' }}>
+            {/* Static Gradient Border */}
+            <div className="absolute inset-0 rounded-[50px] pointer-events-none">
+              <div className="absolute inset-0 rounded-[50px] p-[3px] bg-gradient-to-b from-[#FF0000] via-[#DDFF11] via-[#FF00FF] to-[#00F2FF]">
+                <div className="w-full h-full rounded-[50px] bg-white"></div>
+              </div>
+            </div>
+
+            {/* Animated Light on Hover */}
+            <div className="absolute inset-0 rounded-[50px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute inset-0 rounded-[50px] p-[3px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
+                <div className="w-full h-full rounded-[50px] bg-white"></div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 px-4 sm:px-12 lg:px-16 py-6 sm:py-10 lg:py-12 flex items-center justify-center">
+              <p className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-center leading-loose whitespace-pre-line" style={{ backgroundImage: 'linear-gradient(to right, #888, #000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>
+                {displayedText}
+                {displayedText.length < fullText.length && (
+                  <span className="inline-block w-[2px] h-[1em] bg-black align-middle ml-0.5 animate-pulse" />
+                )}
+              </p>
             </div>
           </div>
-
-          {/* Animated Light on Hover */}
-          <div className="absolute inset-0 rounded-[50px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="absolute inset-0 rounded-[50px] p-[3px] bg-gradient-to-b from-transparent via-white to-transparent border-light-animate">
-              <div className="w-full h-full rounded-[50px] bg-white"></div>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 px-4 sm:px-12 lg:px-16 py-6 sm:py-10 lg:py-12 flex items-center justify-center">
-            <p className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-center leading-loose whitespace-pre-line" style={{ backgroundImage: 'linear-gradient(to right, #888, #000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>
-              {displayedText}
-              {displayedText.length < fullText.length && (
-                <span className="inline-block w-[2px] h-[1em] bg-black align-middle ml-0.5 animate-pulse" />
-              )}
-            </p>
-          </div>
         </div>
-
-        
-        </div>
-       
-       </div>
-     </section>
+      </div>
+    </section>
   );
 }
 

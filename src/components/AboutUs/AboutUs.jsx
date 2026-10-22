@@ -2280,7 +2280,7 @@ function AboutUs() {
       </section>
 
       {/* Our Values Section (Modified to take full width screen & shift up) */}
-      <section className="lg:block w-full bg-black relative -mt-8 md:-mt-12 lg:-mt-16 z-20">
+      {/* <section className="lg:block w-full bg-black relative -mt-8 md:-mt-12 lg:-mt-16 z-20">
         <div className="relative w-full">
           <img src="/professional-portrait-of-a-gulf-woman-st_VMTN33Z4RIao7LQi0EaSVA_9T8J_OzSQ7GRNT_78pt7yg_4k 1.png" alt="Our Values" className="w-full h-auto object-cover block" style={{ transform: isAr ? 'translateX(-1%) scaleX(-1)' : 'translateX(-1%)' }} />
           <div className={`absolute top-16 md:top-24 lg:top-36 ${isAr ? 'right-8 md:right-12 lg:right-[180px]' : 'left-8 md:left-12 lg:left-[180px]'}`}>
@@ -2302,7 +2302,65 @@ function AboutUs() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+
+
+
+<section className="w-full bg-black relative -mt-8 md:-mt-12 lg:-mt-16 z-20 overflow-hidden">
+  <div className="relative w-full flex items-center justify-center">
+    <img 
+      src="/professional-portrait-of-a-gulf-woman-st_VMTN33Z4RIao7LQi0EaSVA_9T8J_OzSQ7GRNT_78pt7yg_4k 1.png" 
+      alt="Our Values" 
+      className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-auto object-cover block" 
+      style={{ transform: isAr ? 'translateX(-1%) scaleX(-1)' : 'translateX(-1%)' }} 
+    />
+    
+    <div className={`absolute inset-0 flex items-center px-4 sm:px-8 md:px-12 lg:px-[180px] ${isAr ? 'justify-end' : 'justify-start'}`}>
+      <div 
+        className="border border-white bg-black/50 sm:bg-black/40 backdrop-blur-[2px] flex flex-col justify-center p-6 sm:p-8 md:p-10 w-full max-w-[950px]" 
+        style={{ 
+          height: 'auto', 
+          minHeight: '260px', 
+          borderRadius: '16px',
+        }}
+      >
+        <div className={`w-full ${isAr ? 'text-right' : 'text-left'}`}>
+          <div className="flex items-center gap-4 mb-3 sm:mb-4">
+            <h2 
+              className="text-white font-light" 
+              style={{ 
+                fontFamily: 'Lexend', 
+                fontSize: 'clamp(36px, 7vw, 96px)', 
+                lineHeight: '100%' 
+              }}
+            >
+              {t('values.title')}
+            </h2>
+          </div>
+
+          <div className={`flex gap-2 sm:gap-3 mb-3 sm:mb-4 ${isAr ? 'justify-end sm:justify-start' : 'justify-start'}`}>
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            ))}
+          </div>
+
+          <div className="w-1/2 h-px bg-white mb-3 sm:mb-4"></div>
+
+          <p className="text-xs sm:text-base md:text-lg lg:text-xl text-white font-medium">
+            {t('values.subtitle')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>   
+
+
+
 
       {/* Mask Group Banner Image at Bottom */}
       <section className="w-full py-6 bg-white flex justify-center items-center">
