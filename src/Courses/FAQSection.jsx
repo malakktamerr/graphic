@@ -130,6 +130,141 @@
 // export default FAQSection;
 
 
+// import React, { useState, useEffect } from 'react';
+// import { useTranslation } from 'react-i18next';
+// import { useLanguage } from '../hooks/useLanguage';
+// import BASE_URL from '../api/config';
+
+// const FAQSection = () => {
+//   const { t } = useTranslation('courses');
+//   const { isAr } = useLanguage();
+//   const [openQuestion, setOpenQuestion] = useState(null);
+//   const [faqs, setFaqs] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     fetch(`${BASE_URL}/faqs?placement=courses`)
+//       .then(r => r.json())
+//       .then(json => {
+//         const items = (json.data || []).sort((a, b) => a.display_order - b.display_order);
+//         setFaqs(items.map(item => ({
+//           id: item.id,
+//           question: isAr ? (item.question_ar || item.question) : (item.question_en || item.question),
+//           answer: isAr ? (item.answer_ar || item.answer) : (item.answer_en || item.answer),
+//         })));
+//       })
+//       .catch((err) => console.error('Failed to fetch FAQs:', err))
+//       .finally(() => setLoading(false));
+//   }, [isAr]);
+
+//   const toggleQuestion = (id) => {
+//     setOpenQuestion(openQuestion === id ? null : id);
+//   };
+
+//   return (
+//     <section dir={isAr ? 'rtl' : 'ltr'} className="w-full relative overflow-hidden">
+//       {/* Subtract Background Image */}
+//       <img
+//         src="/Subtract.png"
+//         alt="Background"
+//         className={`absolute -top-[50px] md:-top-[100px] w-full sm:w-[280%] h-[120vh] md:h-[180vh] object-contain opacity-50 z-40 pointer-events-none ${isAr ? 'left-0 sm:-left-[300px]' : 'right-0 sm:-right-[500px]'}`}
+//         style={{ overflow: 'visible', transform: isAr ? 'scaleX(-1)' : 'none' }}
+//       />
+      
+//       {/* Black Background Section */}
+//       <div className="bg-black py-4 md:py-8 relative z-10 overflow-hidden">
+//         <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-start gap-6 lg:gap-12">
+          
+//           {/* Left Side - FAQ List */}
+//           <div className="w-full lg:w-1/2 space-y-4 md:space-y-8 mt-4 md:mt-12">
+//             <h3
+//               className={`text-2xl sm:text-4xl lg:text-6xl font-bold mb-4 md:mb-8 ${isAr ? 'text-right' : 'text-left'}`}
+//               style={{
+//                 backgroundImage: 'linear-gradient(90deg, #BD8800, #FFD100, #9C6B00)',
+//                 WebkitBackgroundClip: 'text',
+//                 backgroundClip: 'text',
+//                 color: 'transparent'
+//               }}
+//             >
+//               {t('faq.title')}
+//             </h3>
+            
+//             {loading ? (
+//               <p className="text-gray-400">Loading...</p>
+//             ) : null}
+
+//             {faqs.map((faq) => (
+//               <div key={faq.id} className="pb-3 md:pb-6">
+//                 {/* Clickable Question */}
+//                 <div
+//                   className="flex items-center justify-between cursor-pointer mb-2 md:mb-4"
+//                   onClick={() => toggleQuestion(faq.id)}
+//                 >
+//                   <h4 className="text-base md:text-lg font-medium text-white leading-relaxed flex-1">
+//                     {faq.question}
+//                   </h4>
+//                   <span className="text-xl md:text-2xl text-yellow-500 ml-2 md:ml-4 flex-shrink-0">
+//                     {openQuestion === faq.id ? '−' : '+'}
+//                   </span>
+//                 </div>
+                
+//                 {/* Lines under each question */}
+//                 <div className="w-full mb-3 md:mb-4">
+//                   <div className="w-full h-1 bg-orange-400"></div>
+//                   <div className="w-full h-0.5 bg-orange-300 opacity-60 mt-1"></div>
+//                 </div>
+                
+//                 {/* Answer - Toggle visibility */}
+//                 {openQuestion === faq.id && (
+//                   <div className="mb-3 md:mb-4">
+//                     <div className="text-green-400 font-semibold mb-2 text-sm md:text-lg">{t('faq.answer')}</div>
+//                     <p className="text-gray-300 leading-relaxed text-xs md:text-sm">
+//                       {faq.answer}
+//                     </p>
+//                   </div>
+//                 )}
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* Right Side - Images (Visible on both Desktop and Mobile smoothly) */}
+//           <div className="w-full lg:w-1/2 relative self-center lg:self-start mt-6 lg:mt-0">
+//             <div className="relative p-2 md:p-8 overflow-visible flex flex-col items-center">
+//               {/* Background Icon */}
+//               <div className="absolute top-4 right-4 opacity-20 hidden lg:block">
+//                 <svg className="w-32 h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+//                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+//                 </svg>
+//               </div>
+
+//               {/* Images Container */}
+//               <div className="relative z-10 flex flex-col justify-center items-center w-full overflow-visible lg:ml-12">
+//                 {/* First image */}
+//                 <img
+//                   src="/Mask group (7).png"
+//                   alt="Abdullah Al-Nasr"
+//                   className="w-full max-w-xs sm:max-w-sm lg:max-w-2xl h-auto object-contain relative z-20"
+//                 />
+                
+//                 {/* Second image */}
+//                 <img
+//                   src="/2 post 1.png"
+//                   alt="Abdullah Al-Nasr"
+//                   className="w-full max-w-xs sm:max-w-sm lg:max-w-2xl h-auto object-contain -mt-10 sm:-mt-20 lg:-mt-60 relative z-30"
+//                 />
+//               </div>
+//             </div>
+//           </div>
+
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default FAQSection;
+
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../hooks/useLanguage';
@@ -208,10 +343,9 @@ const FAQSection = () => {
                   </span>
                 </div>
                 
-                {/* Lines under each question */}
+                {/* Line under each question (خط واحد رفيع فقط) */}
                 <div className="w-full mb-3 md:mb-4">
-                  <div className="w-full h-1 bg-orange-400"></div>
-                  <div className="w-full h-0.5 bg-orange-300 opacity-60 mt-1"></div>
+                  <div className="w-full h-[1px] bg-orange-400 opacity-60"></div>
                 </div>
                 
                 {/* Answer - Toggle visibility */}
@@ -227,7 +361,7 @@ const FAQSection = () => {
             ))}
           </div>
 
-          {/* Right Side - Images (Visible on both Desktop and Mobile smoothly) */}
+          {/* Right Side - Images */}
           <div className="w-full lg:w-1/2 relative self-center lg:self-start mt-6 lg:mt-0">
             <div className="relative p-2 md:p-8 overflow-visible flex flex-col items-center">
               {/* Background Icon */}
@@ -263,4 +397,3 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
-

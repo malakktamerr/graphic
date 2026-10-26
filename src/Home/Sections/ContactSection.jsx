@@ -162,9 +162,7 @@ function ContactSection() {
 
   return (
     <section className="w-full py-16 bg-white font-lexend overflow-hidden">
-      {/* Title above image */}
-      <div className="w-full max-w-6xl mx-auto px-4 mb-16">
-        {/* Title - تم تعديله بحشو عمودي وارتفاع سطر كافٍ لإظهار النقاط كاملاً */}
+      {/* <div className="w-full max-w-6xl mx-auto px-4 mb-16">
         <div className="w-full flex items-center justify-center mb-8">
           <h2
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center py-4 leading-relaxed overflow-visible"
@@ -183,7 +181,6 @@ function ContactSection() {
           </h2>
         </div>
 
-        {/* Cover Image */}
         <div className="w-full flex justify-center" style={{ marginTop: '50px' }}>
           <img
             src={isAr ? "/cover-websitebar2.png" : "/cover-websitebar2.png"}
@@ -191,7 +188,19 @@ function ContactSection() {
             className="w-[90%] h-auto object-contain "
           />
         </div>
-      </div>
+      </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Scrolling Projects - 3D Carousel */}
       <div className="w-full perspective-container py-6 sm:py-12">

@@ -82,7 +82,32 @@ function CourseVideos() {
         style={{ background: 'linear-gradient(120deg, #f8f8f8 0%, #e0e0e0 40%, #cccccc 100%)' }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between" style={{ minHeight: '320px' }}>
-          <div className="flex-1 py-8 md:py-12 flex flex-col items-center text-center">
+          <div className="flex-1 py-8 md:py-12 flex flex-col items-center text-center px-4">
+  <h1 style={{ lineHeight: 1.2, marginBottom: '0.5rem' }}>
+    <span className="block font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 96px)', ...(isAr ? { color: '#000' } : { backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }) }}>{t('hero.our')}</span>
+    <span className="block" style={{ fontSize: 'clamp(2rem, 8vw, 96px)', fontWeight: 700, backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>
+      {t('hero.title')}
+    </span>
+  </h1>
+  
+  <p style={{ fontSize: 'clamp(1.2rem, 4vw, 48px)', fontWeight: 700, lineHeight: 1.5, margin: 0, color: '#000' }}>
+    {isAr ? (
+      <span className="inline-block px-2">
+        {t('hero.choosePath')}{' '}
+        <span style={{ backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{t('hero.toSuccess')}</span>
+      </span>
+    ) : (
+      t('hero.choosePath')
+    )}
+  </p>
+
+  {!isAr && (
+    <p style={{ fontSize: 'clamp(1.2rem, 4vw, 48px)', fontWeight: 600, lineHeight: 1.5, margin: 0, color: '#000' }}>
+      {t('hero.toSuccess')}
+    </p>
+  )}
+</div>
+          {/* <div className="flex-1 py-8 md:py-12 flex flex-col items-center text-center">
             <h1 style={{ lineHeight: 1, marginBottom: 0 }}>
               <span className="block font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 96px)', ...(isAr ? { color: '#000' } : { backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }) }}>{t('hero.our')}</span>
               <span className="block" style={{ fontSize: 'clamp(2rem, 8vw, 96px)', fontWeight: 700, backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>
@@ -100,7 +125,10 @@ function CourseVideos() {
               )}
             </p>
             {!isAr && <p style={{ fontSize: 'clamp(1.5rem, 6vw, 64px)', fontWeight: 600, lineHeight: 1.2, margin: 0, color: '#000' }}>{t('hero.toSuccess')}</p>}
-          </div>
+          </div> */}
+
+
+
           <div className="flex-1 flex justify-center md:justify-end items-end pb-0" style={{ maxWidth: '420px' }}>
             <img src="/image_1.png" alt="Course Hero" className="object-contain" style={{ height: 'clamp(180px, 35vw, 370px)' }} />
           </div>

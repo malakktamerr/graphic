@@ -41,27 +41,22 @@ const PortfolioSection = () => {
     <section className="w-full py-16 mt-20 bg-white overflow-hidden">
   {/* Section Title */}
   <div className="text-center mb-12">
-  <div className="font-lexend font-bold relative inline-block 
-  text-[48px] sm:text-[64px] md:text-[96px]">
+  <div className="font-lexend font-bold relative inline-block text-[48px] sm:text-[64px] md:text-[96px] whitespace-nowrap">
 
-  {isAr ? (
-    <span className="relative inline-block" style={{ letterSpacing: '0.08em' }}>
-      {/* Star above ش */}
-      <span className="absolute -top-2 sm:-top-3 md:-top-4" style={{ right: 0 }}>
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12">
-          <defs>
-            <pattern id="starImgPortfolioAr" patternUnits="userSpaceOnUse" width="24" height="24">
-              <image href="/nzrzOfxWPwo-4.png" x="0" y="0" width="24" height="24" preserveAspectRatio="xMidYMid slice" />
-            </pattern>
-          </defs>
-          <path fill="url(#starImgPortfolioAr)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      </span>
-      <AnimatedWords
-        text="شركاء النجاح"
-        as="span"
-        className="inline"
-        style={{
+    {isAr ? (
+      <span className="relative inline-block" style={{ letterSpacing: '0.08em' }}>
+        {/* Star above ش */}
+        <span className="absolute -top-2 sm:-top-3 md:-top-4" style={{ right: 0 }}>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12">
+            <defs>
+              <pattern id="starImgPortfolioAr" patternUnits="userSpaceOnUse" width="24" height="24">
+                <image href="/nzrzOfxWPwo-4.png" x="0" y="0" width="24" height="24" preserveAspectRatio="xMidYMid slice" />
+              </pattern>
+            </defs>
+            <path fill="url(#starImgPortfolioAr)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </span>
+        <span style={{
           backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -69,11 +64,11 @@ const PortfolioSection = () => {
           backgroundClip: 'text',
           color: 'transparent',
           letterSpacing: '0.08em',
-        }}
-      />
-    </span>
-  ) : (
-    <>
+        }}>
+          شركاء النجاح
+        </span>
+      </span>
+    ) : (
       <span className="relative inline-block" style={{
         backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
         backgroundSize: 'cover',
@@ -82,35 +77,31 @@ const PortfolioSection = () => {
         backgroundClip: 'text',
         color: 'transparent'
       }}>
-        O
-        <span className="absolute -top-2 sm:-top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12">
-            <defs>
-              <pattern id="starImgPortfolio" patternUnits="userSpaceOnUse" width="24" height="24">
-                <image href="/nzrzOfxWPwo-4.png" x="0" y="0" width="24" height="24" preserveAspectRatio="xMidYMid slice" />
-              </pattern>
-            </defs>
-            <path fill="url(#starImgPortfolio)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-          </svg>
+        <span className="relative inline-block">
+          O
+          <span className="absolute -top-2 sm:-top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12">
+              <defs>
+                <pattern id="starImgPortfolio" patternUnits="userSpaceOnUse" width="24" height="24">
+                  <image href="/nzrzOfxWPwo-4.png" x="0" y="0" width="24" height="24" preserveAspectRatio="xMidYMid slice" />
+                </pattern>
+              </defs>
+              <path fill="url(#starImgPortfolio)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          </span>
         </span>
+        ur Customers
       </span>
-      <AnimatedWords
-        text="ur Customers"
-        as="span"
-        className="inline"
-        style={{
-          backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          WebkitBackgroundClip: 'text',
-          backgroundClip: 'text',
-          color: 'transparent'
-        }}
-      />
-    </>
-  )}
-</div>
+    )}
+
   </div>
+</div>
+
+
+
+
+
+  
 
   {/* White strip with logos - Swiper */}
 <div className="w-full bg-white py-6 mt-20 overflow-hidden" style={{ maxWidth: '100vw' }}>

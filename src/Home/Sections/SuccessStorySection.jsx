@@ -31,10 +31,10 @@ const SuccessStorySection = () => {
             </div>
 
             {/* Text Overlay at Bottom */}
-            <div className="absolute -bottom-24 sm:-bottom-32 left-1/2 transform -translate-x-1/2 w-full max-w-2xl text-center">
-              {/* Banner with Background Image */}
-              <div className="relative inline-block rounded-full px-4 sm:px-8 py-3 sm:py-4 mb-2 shadow-lg w-[90vw] sm:w-auto md:min-w-[700px]">
-                {/* Background Image */}
+            {/* <div className="absolute -bottom-24 sm:-bottom-32 left-1/2 transform -translate-x-1/2 w-full max-w-2xl text-center">
+              
+              <div className="relative inline-block rounded-full px-10 sm:px-20 py-3 sm:py-4 mb-2 shadow-lg w-auto md:min-w-[750px]">
+                
                 <img 
                   src="/nzrzOfxWPwo 1.png" 
                   alt="Background" 
@@ -54,7 +54,7 @@ const SuccessStorySection = () => {
                 </h2>
               </div>
 
-              {/* Black Text Below */}
+      
               <div className="space-y-1">
                 <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900">
                   {t('successStory.line2')}
@@ -63,7 +63,47 @@ const SuccessStorySection = () => {
                   {t('successStory.line3')}
                 </h3>
               </div>
-            </div>
+            </div> */}
+
+
+
+<div className="absolute -bottom-24 sm:-bottom-32 left-1/2 transform -translate-x-[45%] w-full max-w-2xl text-center">
+  {/* Banner with Background Image */}
+  <div className="relative inline-block rounded-full px-10 sm:px-20 py-3 sm:py-4 mb-2 shadow-lg w-auto md:min-w-[750px]">
+    {/* Background Image */}
+    <img 
+      src="/nzrzOfxWPwo 1.png" 
+      alt="Background" 
+      className="absolute rounded-full"
+      style={{ 
+        zIndex: 0,
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover'
+      }}
+    />
+    <h2 className="relative text-white text-base sm:text-xl md:text-2xl lg:text-5xl font-bold" style={{ zIndex: 1 }}>
+      {t('successStory.line1')}
+    </h2>
+  </div>
+
+  {/* Black Text Below */}
+  <div className="space-y-1">
+    <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900">
+      {t('successStory.line2')}
+    </h3>
+    <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900">
+      {t('successStory.line3')}
+    </h3>
+  </div>
+</div>
+
+
+
+
           </div>
         </div>
       </div>

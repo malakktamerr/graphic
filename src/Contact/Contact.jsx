@@ -2671,6 +2671,8 @@
 
 // export default Contact;
 
+
+
 import { useEffect, useRef, useState } from 'react';
 import BASE_URL from '../api/config';
 import { useTranslation } from 'react-i18next';
@@ -2781,7 +2783,7 @@ const ConsultationCarousel = ({ items }) => {
               <img 
                 src={item.gif} 
                 alt={item.lines[0]} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.35)' }} 
               />
             </div>
           </div>
@@ -2835,50 +2837,6 @@ function Contact() {
 
   return (
     <div style={{ backgroundColor: '#000000C9' }}>
-      {/* Hero Section */}
-      {/* <section className="w-full bg-white flex items-start justify-center pt-16 md:pt-20 relative" dir={isAr ? 'rtl' : 'ltr'}>
-        <div className="relative w-full max-w-full">
-          <img
-            className="w-full h-auto object-cover"
-            src="/cover-websitebar2 2.png"
-            alt="Courses Cover"
-            style={{ transform: isAr ? 'scaleX(-1)' : 'none' }}
-          />
-          <div className="absolute inset-0 flex items-center px-6 sm:px-12 md:px-20">
-            <div className={`flex flex-col gap-1 sm:gap-2 w-full max-w-xl ${isAr ? 'items-end text-right ml-auto' : 'items-start text-left'}`}>
-              <div style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: 'clamp(32px, 8vw, 128px)', lineHeight: 1, width: '100%' }}>
-                {isAr ? (
-                  <div className="flex justify-end w-full">
-                    <img 
-                      src="/جاهزين في الوطن العربي 1.png" 
-                      alt="جاهزين في الوطن العربي" 
-                      className="max-w-[200px] sm:max-w-xs md:max-w-md lg:max-w-lg h-auto object-contain -mr-2 sm:-mr-4"
-                    />
-                  </div>
-                ) : (
-                  <span style={{ 
-                    backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    color: 'transparent',
-                    WebkitTextFillColor: 'transparent',
-                  }}>{t('hero.readyTo')}</span>
-                )}
-              </div>
-              <p style={{ fontFamily: 'Lexend', fontWeight: 600, fontSize: 'clamp(18px, 4vw, 70px)', color: '#000000', lineHeight: 1, textAlign: isAr ? 'right' : 'left', width: '100%' }}>
-                {t('hero.connect')}
-              </p>
-              <p style={{ fontFamily: 'Lexend', fontWeight: 300, fontSize: 'clamp(12px, 2vw, 30px)', backgroundImage: 'linear-gradient(to right, #7300FF, #00D0FF, #FF0000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent', textAlign: isAr ? 'right' : 'left', width: '100%' }}>
-                {t('hero.letsTalk')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-
       {/* Hero Section */}
       <section className="w-full bg-white flex items-start justify-center pt-16 md:pt-20 relative" dir={isAr ? 'rtl' : 'ltr'}>
         <div className="relative w-full max-w-full">
@@ -3086,7 +3044,7 @@ function Contact() {
                     <img 
                       src={item.gif} 
                       alt={item.lines[0]} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.2)' }} 
                     />
                   </div>
                 </div>

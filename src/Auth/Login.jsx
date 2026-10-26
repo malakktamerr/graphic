@@ -443,8 +443,8 @@ function Login() {
       {/* El-Goz' el-shemal */}
       <div className="hidden lg:flex w-2/5 bg-black items-center justify-center p-8 shrink-0 h-full">
         <img 
-          src="/Abdullah  el-Nasr.png" 
-          alt="ANS Logo" 
+          src="/loogo.png" 
+          alt="loogo" 
           className="object-contain max-h-[60vh]" 
           style={{ width: 'clamp(210px, 28vw, 360px)' }} 
         />
