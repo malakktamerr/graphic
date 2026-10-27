@@ -149,25 +149,45 @@ const AboutSection = () => {
           `}</style>
           
           <h2 
-            className="font-bold leading-tight break-words" 
-            style={{ 
-              fontSize: 'clamp(1.25rem, 4vw, 3.75rem)', 
-              wordBreak: 'break-word', 
-              overflowWrap: 'break-word',
-              backgroundImage: 'linear-gradient(180deg, #FDE074 0%, #E29924 35%, #B15509 70%, #682200 100%)',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              color: 'transparent',
-            }}
+            // className="font-bold leading-tight break-words" 
+            // style={{ 
+            //   fontSize: 'clamp(1.25rem, 4vw, 3.75rem)', 
+            //   wordBreak: 'break-word', 
+            //   overflowWrap: 'break-word',
+            //   backgroundImage: 'linear-gradient(180deg, #FDE074 0%, #E29924 35%, #B15509 70%, #682200 100%)',
+            //   WebkitBackgroundClip: 'text',
+            //   backgroundClip: 'text',
+            //   WebkitTextFillColor: 'transparent',
+            //   color: 'transparent',
+            // }}
+            className="font-bold leading-tight break-words -mt-5" 
+style={{ 
+  fontSize: 'clamp(1.25rem, 4vw, 3.75rem)', 
+  wordBreak: 'break-word', 
+  overflowWrap: 'break-word',
+  backgroundImage: 'linear-gradient(180deg, #FDE074 0%, #E29924 35%, #B15509 70%, #682200 100%)',
+  WebkitBackgroundClip: 'text',
+  backgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  color: 'transparent',
+}}
           >
             {titles.map((line, i) => (
               <span
                 key={i}
                 className="block mb-2 sm:mb-4"
-                style={{
-                  animation: `fadeUpAbout 0.8s ease-out ${i * 0.4}s both`,
-                }}
+style={{ 
+  fontSize: 'clamp(1.25rem, 4vw, 3.75rem)', 
+  wordBreak: 'break-word', 
+  overflowWrap: 'break-word',
+  lineHeight: '1.5',
+  paddingBottom: '8px', // تعطي مساحة كافية تحت السطر لتظهر النقاط والحروف السفلية كاملة
+  backgroundImage: 'linear-gradient(180deg, #FDE074 0%, #E29924 35%, #B15509 70%, #682200 100%)',
+  WebkitBackgroundClip: 'text',
+  backgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  color: 'transparent',
+}}
               >
                 {line}
               </span>

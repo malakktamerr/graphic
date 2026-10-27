@@ -203,7 +203,7 @@ function ContactSection() {
 
 
       {/* Scrolling Projects - 3D Carousel */}
-      <div className="w-full perspective-container py-6 sm:py-12">
+     {/* <div className="w-full perspective-container py-6 sm:py-12">
         <div className="flex justify-center items-center relative overflow-hidden" style={{ height: 'clamp(200px, 45vw, 450px)', width: '100%' }}>
           {projects.map((project, index) => {
             const position = (index - currentIndex + projects.length) % projects.length;
@@ -239,8 +239,8 @@ function ContactSection() {
             );
           })}
         </div>
-      </div>
-    </section>
+      </div>*/}
+    </section>  
   );
 }
 

@@ -957,11 +957,44 @@ const CertificationsSection = () => {
   const [certifications, setCertifications] = useState([]);
   const scrollRef = useRef(null);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   getCertificates({ per_page: 50 })
+  //     .then((data) => {
+        
+  //       if (data?.data?.length > 0) {
+  //         const mapped = data.data.map((cert, i) => {
+  //           return {
+  //             id: cert.id || i,
+  //             name: cert.holder?.name || 'Unknown',
+  //             achievement: isRTL
+  //               ? (cert.name_ar || cert.course?.title_ar || cert.course?.title || 'Excellence in Graphic Design')
+  //               : (cert.name_en || cert.course?.title_en || cert.course?.title || 'Excellence in Graphic Design'),
+  //             description: isRTL
+  //               ? (cert.description_ar || cert.description || "رؤية تناسب طموحاتي تمامًا. لدي أفكار جديدة ورائعة أعلم أنني سأحققها.")
+  //               : (cert.description_en || cert.description || "vision that fits my ambitions perfectly. I have new ideas and great that I know I will achieve them."),
+  //             image: cert.image_url || certImages[i % certImages.length],
+  //             displayName: cert.holder?.name?.split(' ')[0] || 'Student',
+  //             certificate_number: cert.certificate_number,
+  //             issued_at: cert.issued_at,
+  //           };
+  //         });
+  //         setCertifications(mapped);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching certificates:', error);
+  //     });
+  // }, [isRTL]);
+         useEffect(() => {
     getCertificates({ per_page: 50 })
       .then((data) => {
-        if (data?.data?.length > 0) {
-          const mapped = data.data.map((cert, i) => {
+        console.log("البيانات الراجعة من الباك اند:", data); // دي هتظهر لك في الـ Console
+        
+        // نخلي الاستقبال مرن سواء كان data.data أو data مباشرة
+        const certificatesList = data?.data || (Array.isArray(data) ? data : []);
+        
+        if (certificatesList.length > 0) {
+          const mapped = certificatesList.map((cert, i) => {
             return {
               id: cert.id || i,
               name: cert.holder?.name || 'Unknown',
@@ -984,7 +1017,6 @@ const CertificationsSection = () => {
         console.error('Error fetching certificates:', error);
       });
   }, [isRTL]);
-
   return (
     <>
       {/* Container الرئيسي للقسم */}

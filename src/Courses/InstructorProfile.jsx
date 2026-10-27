@@ -87,7 +87,7 @@ const InstructorProfile = () => {
         </div>
 
         {/* Quote Box */}
-        <div className="mt-12 sm:mt-20">
+        {/* <div className="mt-12 sm:mt-20">
           <AnimatedWords
             text={t('profile.quote')}
             as="p"
@@ -95,7 +95,7 @@ const InstructorProfile = () => {
             style={{ fontWeight: 400, backgroundImage: 'linear-gradient(to right, #888, #000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}
             byLine={true}
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );

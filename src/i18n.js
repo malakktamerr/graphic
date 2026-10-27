@@ -1,3 +1,4 @@
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -67,10 +68,12 @@ i18n
       },
     },
     defaultNS: 'common',
-    lng: localStorage.getItem('i18nextLng') || 'ar',
+    // 1. جعل اللغة الافتراضية 'en' بدلاً من 'ar' عند عدم وجود تخزين سابقة
+    lng: localStorage.getItem('i18nextLng') || 'en',
     fallbackLng: 'en',
     detection: {
-      order: ['localStorage', 'navigator'],
+      // 2. إزالة 'navigator' لكي لا يفرض لغة المتصفح العربية على الزائر الجديد
+      order: ['localStorage'], 
       caches: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
     },
