@@ -1,10 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import AnimatedWords from '../../components/AnimatedWords/AnimatedWords';
 import { getBrands } from '../../api/brands';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
 
 const PortfolioSection = () => {
   const { t, i18n } = useTranslation('home');
@@ -24,7 +20,6 @@ const PortfolioSection = () => {
   ];
 
   const [logos, setLogos] = useState(null);
-  const swiperRef = useRef(null);
 
   useEffect(() => {
     getBrands()
@@ -97,40 +92,53 @@ const PortfolioSection = () => {
         </div>
       </div>
 
-      {/* White strip with logos - Swiper */}
-      <div className="w-full bg-white py-6 mt-20 overflow-hidden" style={{ maxWidth: '100vw' }}>
+      {/* Full Width Infinite Marquee Slider */}
+      <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-white py-6 mt-10 overflow-hidden">
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+
         {logos === null ? (
           /* Skeleton */
-          <div className="flex gap-10 px-10">
+          <div className="flex gap-12 px-10 w-full justify-around">
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
                 className="h-12 md:h-16 flex-shrink-0 rounded-lg bg-gray-200 animate-pulse"
-                style={{ width: '80px' }}
+                style={{ width: '150px' }}
               />
             ))}
           </div>
         ) : (
-          <Swiper
-            ref={swiperRef}
-            modules={[Autoplay]}
-            spaceBetween={40}
-            slidesPerView="auto"
-            loop={true}
-            speed={3000}
-            autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
-            className="flex items-center"
-          >
-            {[...logos, ...logos].map((logo, i) => (
-              <SwiperSlide key={i} className="flex justify-center items-center py-4" style={{ width: '220px' }}>
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="w-full overflow-hidden">
+            <div className="animate-marquee flex items-center gap-16">
+              {/* تكرار اللوجوهات 4 مرات لملء الشاشات الكبيرة وعدم حدوث أي فراغ */}
+              {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
+                <div 
+                  key={i} 
+                  className="flex justify-center items-center py-4 flex-shrink-0"
+                  style={{ width: '180px' }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </section>
