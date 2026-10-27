@@ -1,3 +1,4 @@
+
 // import { useState, useEffect } from 'react';
 // import { useNavigate } from 'react-router-dom';
 // import { getCourses } from '../api/courses';
@@ -83,34 +84,35 @@
 //       >
 //         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between" style={{ minHeight: '320px' }}>
 //           <div className="flex-1 py-8 md:py-12 flex flex-col items-center text-center px-4">
-//   <h1 style={{ lineHeight: 1.2, marginBottom: '0.5rem' }}>
-//     <span className="block font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 96px)', ...(isAr ? { color: '#000' } : { backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }) }}>{t('hero.our')}</span>
-//     <span className="block" style={{ fontSize: 'clamp(2rem, 8vw, 96px)', fontWeight: 700, backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>
-//       {t('hero.title')}
-//     </span>
-//   </h1>
-  
-//   <p style={{ fontSize: 'clamp(1.2rem, 4vw, 48px)', fontWeight: 700, lineHeight: 1.5, margin: 0, color: '#000' }}>
-//     {isAr ? (
-//       <span className="inline-block px-2">
-//         {t('hero.choosePath')}{' '}
-//         <span style={{ backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{t('hero.toSuccess')}</span>
-//       </span>
-//     ) : (
-//       t('hero.choosePath')
-//     )}
-//   </p>
+//             <h1 style={{ lineHeight: 1.2, marginBottom: '0.5rem' }}>
+//               <span className="block font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 96px)', ...(isAr ? { color: '#000' } : { backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }) }}>{t('hero.our')}</span>
+//               <span className="block" style={{ fontSize: 'clamp(2rem, 8vw, 96px)', fontWeight: 700, backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>
+//                 {t('hero.title')}
+//               </span>
+//             </h1>
+            
+//             <p style={{ fontSize: 'clamp(1.2rem, 4vw, 48px)', fontWeight: 700, lineHeight: 1.5, margin: 0, color: '#000' }}>
+//               {isAr ? (
+//                 <span className="inline-block px-2">
+//                   {t('hero.choosePath')}{' '}
+//                   <span style={{ backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>{t('hero.toSuccess')}</span>
+//                 </span>
+//               ) : (
+//                 t('hero.choosePath')
+//               )}
+//             </p>
 
-//   {!isAr && (
-//     <p style={{ fontSize: 'clamp(1.2rem, 4vw, 48px)', fontWeight: 600, lineHeight: 1.5, margin: 0, color: '#000' }}>
-//       {t('hero.toSuccess')}
-//     </p>
-//   )}
-// </div>
-//     <div className="flex-1 flex justify-center md:justify-end items-end pb-0 translate-y-6" style={{ maxWidth: '420px' }}>
+//             {!isAr && (
+//               <p style={{ fontSize: 'clamp(1.2rem, 4vw, 48px)', fontWeight: 600, lineHeight: 1.5, margin: 0, color: '#000' }}>
+//                 {t('hero.toSuccess')}
+//               </p>
+//             )}
+//           </div>
+//           <div className={`flex-1 flex justify-center md:justify-end items-end pb-0 ${!isAr ? 'translate-y-10' : 'translate-y-6'}`} style={{ maxWidth: '420px' }}>
 //             <img src="/image_1.png" alt="Course Hero" className="object-contain" style={{ height: 'clamp(180px, 35vw, 370px)' }} />
 //           </div>
-//         </section>
+//         </div>
+//       </section>
 
 //       {/* White section over hero */}
 //       <div style={{ position: 'relative', zIndex: 10, marginTop: '-40px' }}>
@@ -311,8 +313,8 @@ function CourseVideos() {
         className="w-full relative overflow-hidden pt-16 md:pt-20"
         style={{ background: 'linear-gradient(120deg, #f8f8f8 0%, #e0e0e0 40%, #cccccc 100%)' }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between" style={{ minHeight: '320px' }}>
-          <div className="flex-1 py-8 md:py-12 flex flex-col items-center text-center px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between" style={{ minHeight: '320px' }}>
+          <div className="flex-1 py-8 md:py-12 flex flex-col items-center md:items-start text-center md:text-left px-2">
             <h1 style={{ lineHeight: 1.2, marginBottom: '0.5rem' }}>
               <span className="block font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 96px)', ...(isAr ? { color: '#000' } : { backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }) }}>{t('hero.our')}</span>
               <span className="block" style={{ fontSize: 'clamp(2rem, 8vw, 96px)', fontWeight: 700, backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent' }}>
@@ -337,8 +339,15 @@ function CourseVideos() {
               </p>
             )}
           </div>
-          <div className={`flex-1 flex justify-center md:justify-end items-end pb-0 ${!isAr ? 'translate-y-10' : 'translate-y-6'}`} style={{ maxWidth: '420px' }}>
-            <img src="/image_1.png" alt="Course Hero" className="object-contain" style={{ height: 'clamp(180px, 35vw, 370px)' }} />
+          
+          {/* Hero Image Responsive Container */}
+          <div className="w-full md:w-auto flex-1 flex justify-center md:justify-end items-end pb-0 mt-6 md:mt-0 px-4">
+            <img 
+              src="/image_1.png" 
+              alt="Course Hero" 
+              className="w-[240px] sm:w-[320px] md:w-full object-contain max-w-[420px]" 
+              style={{ height: 'auto', maxHeight: '370px' }} 
+            />
           </div>
         </div>
       </section>
@@ -354,7 +363,7 @@ function CourseVideos() {
                 className="flex-1 px-5 py-3 bg-transparent border-none rounded-full text-black focus:outline-none text-sm min-w-0"
                 value={email} onChange={e => setEmail(e.target.value)} />
               <button onClick={handleGetAccess} disabled={accessLoading}
-                className="px-6 py-3 bg-black text-white rounded-full font-semibold text-sm disabled:opacity-60">
+                className="px-6 py-3 bg-black text-white rounded-full font-semibold text-sm disabled:opacity-60 cursor-pointer">
                 {accessLoading ? t('access.loading') : t('access.getAccess')}
               </button>
             </div>
@@ -380,7 +389,7 @@ function CourseVideos() {
           {/* Subscribe Now button + divider */}
           <div className="flex items-center gap-3 sm:gap-6 max-w-9xl mx-auto mb-12 px-4">
             <div className="flex-1 h-px bg-gray-200"></div>
-            <button onClick={() => navigate('/subscribe')} className="px-6 sm:px-20 py-3 sm:py-4 rounded-full bg-black text-white font-semibold text-sm sm:text-2xl whitespace-nowrap hover:bg-gray-800 transition-colors duration-200">
+            <button onClick={() => navigate('/subscribe')} className="px-6 sm:px-20 py-3 sm:py-4 rounded-full bg-black text-white font-semibold text-sm sm:text-2xl whitespace-nowrap hover:bg-gray-800 transition-colors duration-200 cursor-pointer">
               {t('subscribe')}
             </button>
             <div className="flex-1 h-px bg-gray-200"></div>
