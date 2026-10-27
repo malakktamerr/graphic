@@ -156,34 +156,59 @@ function Instructor() {
     if (!video) return null;
     return (
       <>
-        <section className="relative w-full bg-white py-6 md:py-16 px-6 sm:px-8 lg:px-12">
-          <div className="w-full max-w-5xl mx-auto">
-            <style>{`@keyframes ping-out{0%,100%{transform:scale(1.25);opacity:0.5}50%{transform:scale(1.5);opacity:0}}.animate-ping-out{animation:ping-out 1.5s ease-in-out infinite}`}</style>
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-red-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-black rounded-2xl overflow-hidden aspect-video flex items-center justify-center border border-gray-800">
-                <video className="absolute inset-0 w-full h-full object-cover" src={`${video.video_url}#t=0.1`} preload="metadata" muted playsInline />
-                <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.4)] z-10" onClick={() => setIsOpen(true)}>
-                  <div className="absolute inset-0 rounded-full border-2 border-green-400 opacity-50 scale-125 animate-ping-out"></div>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-0.5">
-                    <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
-                  </svg>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 to-transparent flex flex-col gap-1">
-                  <div className="w-full h-0.5 bg-gray-600 rounded-full overflow-hidden">
-                    <div className="w-1/3 h-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]"></div>
-                  </div>
-                  <div className="flex justify-between items-center text-white text-[10px] sm:text-xs opacity-80 mt-1">
-                    <div className="flex gap-4">
-                      <span>00:00 / 02:30</span>
-                    </div>
-                    <div className="font-mono truncate max-w-[200px]">Video</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+       <section className="relative w-full bg-white py-6 md:py-16 px-6 sm:px-8 lg:px-12">
+  <div className="w-full max-w-5xl mx-auto">
+    <style>{`@keyframes ping-out{0%,100%{transform:scale(1.25);opacity:0.5}50%{transform:scale(1.5);opacity:0}}.animate-ping-out{animation:ping-out 1.5s ease-in-out infinite}`}</style>
+    <div className="relative group">
+      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-red-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+      <div className="relative bg-black rounded-2xl overflow-hidden aspect-video flex items-center justify-center border border-gray-800">
+        
+        {/* الفيديو */}
+        <video className="absolute inset-0 w-full h-full object-cover" src={`${video.video_url}#t=0.1`} preload="metadata" muted playsInline />
+
+        {/* الطبقة الغامقة الشفافة */}
+        <div className="absolute inset-0 bg-black/40 pointer-events-none z-10" />
+
+        {/* زر التشغيل الدائري الشفاف */}
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div 
+            onClick={() => setIsOpen(true)}
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/40 border border-white/40 backdrop-blur-sm flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer"
+          >
+            <svg 
+              className="w-6 h-6 sm:w-8 sm:h-8 text-white translate-x-0.5" 
+              fill="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
           </div>
-        </section>
+        </div>
+
+        {/* شريط معلومات الفيديو السفلي */}
+        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 to-transparent flex flex-col gap-1 z-30">
+          <div className="w-full h-0.5 bg-gray-600 rounded-full overflow-hidden">
+            <div className="w-1/3 h-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]"></div>
+          </div>
+          <div className="flex justify-between items-center text-white text-[10px] sm:text-xs opacity-80 mt-1">
+            <div className="flex gap-4">
+              <span>00:00 / 02:30</span>
+            </div>
+            <div className="font-mono truncate max-w-[200px]">Video</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
         {isOpen && (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={() => setIsOpen(false)}>
             <div className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
@@ -206,7 +231,7 @@ function Instructor() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="w-full flex items-start justify-center pt-16 md:pt-20 relative" style={{ minHeight: 'auto' }}>
+     <section className="w-full flex items-start justify-center pt-16 md:pt-20 relative" style={{ minHeight: 'auto' }}>
         <div className="relative w-full max-w-full">
           <style>{`
             @keyframes borderRotate {
@@ -225,35 +250,35 @@ function Instructor() {
           <div className="animated-border-wrap">
             <img className="w-full h-auto object-cover" src="/cover-websitebar2 2 (1).png" alt="Instructor Cover" style={{ borderRadius: '0 0 60px 60px', display: 'block', transform: isAr ? 'scaleX(-1)' : 'none' }} />
           </div>
-          <div className="absolute inset-0 flex items-center px-4 sm:px-10 md:px-20">
-            <div className="flex flex-col gap-2 sm:gap-4" style={{ width: '60%' }}>
+          <div className="absolute inset-0 flex items-center px-4 sm:px-8 md:px-20">
+            <div className="flex flex-col gap-1 sm:gap-2.5 md:gap-4 w-[75%]: sm:w-[65%] md:w-[60%]" style={{ maxWidth: '100%' }}>
               {isAr ? (
                 <>
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                     {t('hero.line1')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line' }}>
                     {t('hero.line1')}
                   </p>
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                     {t('hero.line1b')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line' }}>
                     {t('hero.line1b')}
                   </p>
-                  <p style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(18px, 4vw, 64px)', backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent', lineHeight: 1.2, letterSpacing: '0.05em' }}>
+                  <p style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(16px, 3.8vw, 64px)', backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent', lineHeight: 1.2, letterSpacing: '0.05em' }}>
                     {t('hero.name')}
                   </p>
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line', paddingLeft: '40px' }}>
                     {t('hero.line2')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line', paddingLeft: '20px' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line', paddingLeft: '10px' }}>
                     {t('hero.line2')}
                   </p>
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line', paddingLeft: '40px' }}>
                     {t('hero.line2b')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line', paddingLeft: '20px' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line', paddingLeft: '10px' }}>
                     {t('hero.line2b')}
                   </p>
                 </>
@@ -262,33 +287,33 @@ function Instructor() {
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                     {t('hero.line1')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line' }}>
                     {t('hero.line1')}
                   </p>
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                     {t('hero.line2')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line' }}>
                     {t('hero.line2')}
                   </p>
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 500, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                     {t('hero.line3')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line' }}>
                     {t('hero.line3')}
                   </p>
                   <p className="hidden md:block" style={{ fontFamily: 'Lexend', fontWeight: 500, fontSize: '40px', color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                     {t('hero.line4')}
                   </p>
-                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(10px, 3.5vw, 18px)', color: '#fff', lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                  <p className="md:hidden" style={{ fontFamily: 'Lexend', fontWeight: 700, fontSize: 'clamp(9px, 2.6vw, 15px)', color: '#fff', lineHeight: 1.3, whiteSpace: 'pre-line' }}>
                     {t('hero.line4')}
                   </p>
-                  <p style={{ fontFamily: 'Lexend', fontWeight: 500, fontSize: 'clamp(18px, 4vw, 64px)', backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent', lineHeight: 1.2, letterSpacing: '0.05em' }}>
+                  <p style={{ fontFamily: 'Lexend', fontWeight: 500, fontSize: 'clamp(16px, 3.8vw, 64px)', backgroundImage: 'url(/nzrzOfxWPwo-4.png)', backgroundSize: 'cover', backgroundPosition: 'center', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent', lineHeight: 1.2, letterSpacing: '0.05em' }}>
                     {t('hero.name')}
                   </p>
                 </>
               )}
-              <img src="/background_removed_image_cOJ5pLLfT5SGchOf9rJdfw 2.png" alt="Adobe Tools" style={{ width: 'clamp(120px, 30vw, 350px)', height: 'auto', objectFit: 'contain' }} />
+              <img src="/background_removed_image_cOJ5pLLfT5SGchOf9rJdfw 2.png" alt="Adobe Tools" style={{ width: 'clamp(90px, 25vw, 350px)', height: 'auto', objectFit: 'contain', marginTop: '4px' }} />
             </div>
           </div>
         </div>

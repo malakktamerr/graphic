@@ -1,3 +1,4 @@
+
 // import { useState, useEffect, useRef } from 'react';
 // import { useNavigate } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
@@ -61,14 +62,6 @@
 
 //   if (lectures !== null && lectures.length === 0) return null;
 
-//   const handlePlayClick = () => {
-//     setIsVideoOpen(true);
-//   };
-
-//   const handleCloseVideo = () => {
-//     setIsVideoOpen(false);
-//   };
-
 //   return (
 //     <section ref={sectionRef} className="w-full bg-white py-6 sm:py-8 lg:py-12 px-6 sm:px-10 lg:px-16">
 //       <div className="max-w-5xl xl:max-w-7xl mx-auto">
@@ -77,7 +70,7 @@
 //           <h2 className="font-lexend font-bold mb-4 sm:mb-6 break-words" style={{
 //             fontSize: 'clamp(1.25rem, 5vw, 4.5rem)',
 //             backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-//             backgroundSize: 'cover',
+//             backgroundSize: '250px auto', // تم تقليل الزوم هنا بتصغير مقاس الخلفية (يمكنك تعديل الرقم حسب الرغبة)
 //             backgroundPosition: 'center',
 //             WebkitBackgroundClip: 'text',
 //             backgroundClip: 'text',
@@ -333,7 +326,7 @@ const CourseCardSection = () => {
           <h2 className="font-lexend font-bold mb-4 sm:mb-6 break-words" style={{
             fontSize: 'clamp(1.25rem, 5vw, 4.5rem)',
             backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
-            backgroundSize: '250px auto', // تم تقليل الزوم هنا بتصغير مقاس الخلفية (يمكنك تعديل الرقم حسب الرغبة)
+            backgroundSize: '250px auto',
             backgroundPosition: 'center',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
@@ -379,7 +372,7 @@ const CourseCardSection = () => {
                 maskComposite: 'exclude',
               }} />
 
-              {/* Skeleton or Thumbnail */}
+              {/* Skeleton or Thumbnail / Video */}
               {lectures === null ? (
                 <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-3xl" />
               ) : activeLecture?.image_url ? (
@@ -398,14 +391,23 @@ const CourseCardSection = () => {
                 />
               ) : null}
             
+              {/* Dark Transparent Overlay (الطبقة الغامقة الشفافة) */}
+              <div className="absolute inset-0 bg-black/40 pointer-events-none z-25" />
+
               {/* Play Button - Centered */}
               <div className="absolute inset-0 flex items-center justify-center z-30">
                 <button
                   onClick={() => activeLecture && setIsVideoOpen(true)}
-                  className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-full border-4 border-cyan-300/80 bg-cyan-600/40 shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-200 overflow-hidden backdrop-blur-sm"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/40 border border-white/40 backdrop-blur-sm flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer"
                   aria-label="Play video"
                 >
-                  <img src="/1182011_555.png" alt="Play" className="w-full h-full object-cover rounded-full" />
+                  <svg 
+                    className="w-6 h-6 sm:w-8 sm:h-8 text-white translate-x-0.5" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -475,7 +477,7 @@ const CourseCardSection = () => {
 
             {/* CTA Button */}
             <div className="flex justify-end">
-              <button onClick={() => navigate('/course-videos')} className="btn-wave flex items-center bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-colors shadow-lg font-semibold text-sm sm:text-base">
+              <button onClick={() => navigate('/course-videos')} className="btn-wave flex items-center bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-colors shadow-lg font-semibold text-sm sm:text-base cursor-pointer">
                 {t('buttons.viewAllCourses', { ns: 'common' })}
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -497,7 +499,7 @@ const CourseCardSection = () => {
             >
               <button
                 onClick={() => setIsVideoOpen(false)}
-                className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors z-10"
+                className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors z-10 cursor-pointer"
                 aria-label="Close video"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

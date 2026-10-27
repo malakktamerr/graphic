@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import AnimatedWords from "../../components/AnimatedWords/AnimatedWords";
+import { useNavigate } from 'react-router-dom';
 
 const gradientStyle = {
   backgroundImage: 'url(/nzrzOfxWPwo-4.png)',
@@ -13,6 +14,7 @@ const gradientStyle = {
 const InstructorAbout = ({ hideWho = false }) => {
   const { t, i18n } = useTranslation('home');
   const isAr = i18n.language?.startsWith('ar');
+  const navigate = useNavigate();
 
   return (
     <section className="w-full pt-32 pb-20 bg-white flex justify-center px-4 sm:px-6 lg:px-16 overflow-hidden">
@@ -69,8 +71,6 @@ const InstructorAbout = ({ hideWho = false }) => {
             </>
           )}
         </div>
-
-
 
       </div>
     </section>
