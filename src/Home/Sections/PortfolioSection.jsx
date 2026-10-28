@@ -73,7 +73,7 @@ const PortfolioSection = () => {
               color: 'transparent'
             }}>
               <span className="relative inline-block mx-1">
-                O
+                
                 <span className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-8 sm:h-8 md:w-12 md:h-12">
                     <defs>
@@ -85,7 +85,7 @@ const PortfolioSection = () => {
                   </svg>
                 </span>
               </span>
-              ur Customers
+              our Customers
             </span>
           )}
 
